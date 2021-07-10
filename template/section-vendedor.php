@@ -1,6 +1,6 @@
     <div class='row p-3 m-0'>
         <div class='col-12 col-md-12 col-lg-12 text-left' style='font-size:17px;'>
-            <h3 class='mb-1 font-weight-bold principal-color'>Informaci&oacuten personal del <strong class='' id='vendedor-datos-personales' > vendedor </strong> </h3>
+            <h3 class='mb-1 font-weight-bold principal-color'>Informaci&oacuten personal del <strong id='vendedor-datos-personales' > vendedor </strong> </h3>
             <p>Rellene a continuaci&oacuten los datos personales del vendedor del veh&iacuteculo.</p>
         </div>
         

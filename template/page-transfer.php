@@ -261,10 +261,10 @@ include('insertar-contrato.php');
                             <div class='col-12 col-md-12 col-lg-12 text-center align-title'>
                                 <div class='row w-100'>
                                     <div class='col-12 col-md-6 col-lg-6'>
-                                        <h3 class='title-border m-auto' id='titulo-comprador' > Datos del comprador</h3>    
+                                        <h3 class='title-tab padding-tab pt-3' id='titulo-comprador' > Datos del comprador</h3>    
                                     </div>
-                                    <div class='col-12 col-md-6 col-lg-6 text-center'>
-                                        <label class='mb-0'>&#191; Eres una empresa &#63; </label>
+                                    <div class='col-12 col-md-6 col-lg-6 pt-3 text-center'>
+                                        <label class='font-weight-bold mb-0'>&#191; Eres una empresa &#63; </label>
                                         <div class="custom-control custom-switch">
                                             <input type="checkbox" class="custom-control-input" name='empresa-comprador' id="empresa-comprador">
                                             <label class="custom-control-label" id='empresa-comprador-label' for="empresa-comprador">S&iacute</label>
@@ -274,6 +274,9 @@ include('insertar-contrato.php');
                                 
                             </div>
                         </div>
+
+                        <div class='separator'></div>
+
                         <div class='row justify-content-center'>
                             <div class='col-12 col-md-12 col-lg-12 text-center'>
                                 <?php include('section-comprador.php'); ?>
