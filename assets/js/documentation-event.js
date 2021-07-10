@@ -34,7 +34,7 @@
               if (radios[i].checked) {
                 
                   if( radios[i].value == 'true' ){
-                      document.getElementById('contrato-compra-venta').style.display = 'flex';
+                      document.getElementById('contrato-compra-venta').style.display = 'none';
                        
                       document.getElementById("nif-vendedor-frontal").classList.remove("col-lg-6");
                       document.getElementById("nif-vendedor-trasero").classList.remove("col-lg-6");
@@ -44,7 +44,10 @@
                       document.getElementById('clausulas').style.display = 'block';
                   }else{
                       document.getElementById('clausulas').style.display = 'none';
-                      document.getElementById('contrato-compra-venta').style.display = 'none';
+                      document.getElementById('contrato-compra-venta').style.display = 'flex';
+                      document.getElementById("contrato-compra-venta").classList.remove("col-lg-4");
+                      document.getElementById("contrato-compra-venta").classList.add("col-lg-6");
+
                       document.getElementById("nif-vendedor-frontal").classList.remove("col-lg-4");
                       document.getElementById("nif-vendedor-frontal").classList.add("col-lg-6");
                       document.getElementById("nif-vendedor-trasero").classList.remove("col-lg-4");

@@ -1,14 +1,14 @@
 <div class='row'>
         
-        <div class='col-12 col-md-12 col-lg-12 mt-3 p-0'>
+        <div class='col-12 col-md-12 col-lg-12 mt-3 text-left'>
              <!-- documentos comprador -->
-            <h3 class='subtitle rounded-t-md '>Cl&aacuteusulas del tr&aacutemite</h3>
+            <h3 class='mb-1 font-weight-bold principal-color'>Cl&aacuteusulas del tr&aacutemite</h3>
         </div>
     
-        <div class='row m-0 border-box-files w-100'>
+        <div class='row m-0 w-100'>
             <div class='col-12 col-md-12 col-lg-12 text-left'>
                 <div class='d-flex'>
-                    <p>¿Quiere que generemos toda la documentaci&oacuten?</p>
+                    <p class='font-weight-bold'>¿Quiere que generemos toda la documentaci&oacuten?</p>
                     <div class="tooltip question-circle"> <strong> i </strong></div>
                     <span class="tooltiptext" style='width: 400px;'>Si ya dispone de un contrato de compra venta indique <strong>'Yo aporto el contrato'</strong>. 
                     En caso contrario nuestro sistema generar&aacute de forma automatic&aacute un contrato de compra venta est&aacutendar que podr&aacute personalizar. </span>
@@ -26,31 +26,26 @@
             
             <!-- clausulas -->
             <div class='col-12 col-md-12 col-lg-12 mt-3 text-left' id='clausulas'>
+              
+                <p class="font-weight-bold w-100" >
+                    Estas son las cl&aacuteusulas que añadiremos nosotros:
+                </p> 
+               
                 <p>
-                    <a class="btn btn-primary w-100 text-left summary-details" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                        Estas son las cl&aacuteusulas que añadiremos nosotros:
-                    </a> 
+                    1.El vendedor declara que el mencionado vehículo es de su legítima propiedad, lo vende y entrega en este acto al comprador, 
+                    recibiéndolo este último a su completa satisfacción.
+                    <br>
+                    2. El precio de la compraventa, teniendo en cuenta las características del vehículo, 
+                    uda de clase alguna pendiente de liquidación a la fecha de este contrato, obligándose a 
+                    estar en entera indemnidad a favor del comprador de cualquier reclamación.
+                    <br>
+                    3. El vendedor facilita y firma en este acto todos los documentos necesarios para 
+                    que el vehículo quede inscrito a nombre del comprador en la Dirección General de Tráfico.
+                    <br>
+                    4. El comprador se hace cargo desde este momento, de todas las responsabilidades 
+                    que se puedan contraer como consecuencia de la propiedad del vehículo descrito que acepta, para su tenencia o uso.     
                 </p>
-                
-                <div class="w-100">
-                    <div class="collapse multi-collapse" id="multiCollapseExample1">
-                      <div class="card card-body">
-                        1.El vendedor declara que el mencionado vehículo es de su legítima propiedad, lo vende y entrega en este acto al comprador, 
-                        recibiéndolo este último a su completa satisfacción.
-                        <br>
-                        2. El precio de la compraventa, teniendo en cuenta las características del vehículo, 
-                        uda de clase alguna pendiente de liquidación a la fecha de este contrato, obligándose a 
-                        estar en entera indemnidad a favor del comprador de cualquier reclamación.
-                        <br>
-                        3. El vendedor facilita y firma en este acto todos los documentos necesarios para 
-                        que el vehículo quede inscrito a nombre del comprador en la Dirección General de Tráfico.
-                        <br>
-                        4. El comprador se hace cargo desde este momento, de todas las responsabilidades 
-                        que se puedan contraer como consecuencia de la propiedad del vehículo descrito que acepta, para su tenencia o uso.
-                        
-                      </div>
-                    </div>
-                 </div>
+                    
                  
                 <div class="formt-group">
                     <div class='d-flex'>
@@ -70,7 +65,7 @@
         <!-- mensajes warning -->
         <div class='col-12 col-md-12 col-lg-12 mt-3 text-left' >
             <p class='list-group-item list-group-item-warning border-left-warning'>
-                Aporte imágenes donde se ven las cuatro esquinas de los documentos, sin dedos y con los documentos bien enfocados. Recomendamos realizar las fotos sobre un fondo blanco.
+                Aporte imágenes donde se ven las <span class='font-weight-bold principal-color'> cuatro esquinas </span> de los documentos, sin dedos y con los documentos bien <span class='font-weight-bold principal-color'> enfocados </span>. Recomendamos realizar las fotos sobre un <span class='font-weight-bold principal-color'>fondo blanco. </span>
             </p>
             
         </div>
@@ -79,14 +74,14 @@
    
 
         <!-- contrato -->
-        <div class='col-12 col-md-12 col-lg-12 mt-3 p-0'>
-            <h3 class='subtitle rounded-t-md '>Documentaci&oacuten del vendedor</h3>
+        <div class='col-12 col-md-12 col-lg-12 mt-3 text-left'>
+            <h3 class='mb-1 font-weight-bold principal-color '>Documentaci&oacuten del vendedor</h3>
         </div>
         
         <!-- documentos -->
-        <div class='row m-0 w-100 border-box-files' >
+        <div class='row m-0 w-100' >
             
-            <div class='col-12 col-md-4 col-lg-4 justify-content-center' style='display: none; ' id='impuesto-hacienda-container' >
+            <div class='col-12 col-md-6 col-lg-6 justify-content-center' style='display: none; ' id='impuesto-hacienda-container' >
                 <div class='text-center column-bg-file p-2' style='width: 250px; margin: 0px auto;'>
                     <p class='mt-2 mb-2 cursor-pointer' id='title-impuesto-hacienda' ><strong> Modelo 620 / 621 - Impuesto hacienda ITP </strong></p>
                     <img width='64' height='64' class='mt-2 mb-2 cursor-pointer' id='imagen-archivo-impuesto-hacienda' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/no-image.png'; ?>" alt="Imagen archivo">
@@ -97,7 +92,7 @@
                 </div>
             </div>
            
-            <div class='col-12 col-md-4 col-lg-4 justify-content-center' style='display: none' id='contrato-compra-venta' >
+            <div class='col-12 col-md-6 col-lg-6 justify-content-center' style='display: none' id='contrato-compra-venta' >
                 <div class='text-center column-bg-file p-2' style='width: 250px; margin: 0px auto;'>
                     <p class='mt-2 mb-2 cursor-pointer' id='title-ccompra' ><strong> Contrato de compraventa </strong></p>
                     <img width='64' height='64' class='mt-2 mb-2 cursor-pointer' id='imagen-archivo-ccompra' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/no-image.png'; ?>" alt="Imagen archivo">
@@ -109,7 +104,7 @@
             </div>
             
             
-            <div class='col-12 col-md-4 col-lg-4 justify-content-center' style='display: flex' id='nif-vendedor-frontal'>
+            <div class='col-12 col-md-6 col-lg-6 justify-content-center' style='display: flex' id='nif-vendedor-frontal'>
                  <div class='text-center column-bg-file p-2' style='width: 250px; margin: 0px auto;'>
                    
                     <div class='d-flex'>
@@ -127,7 +122,7 @@
             </div>
             
             
-            <div class='col-12 col-lg-4 col-md-4 justify-content-center' style='display: flex' id='nif-vendedor-trasero'>
+            <div class='col-12 col-lg-6 col-md-6 justify-content-center' style='display: flex' id='nif-vendedor-trasero'>
                   <div class='text-center column-bg-file p-2' style='width: 250px; margin: 0px auto;'>
                 
                     <div class='d-flex'>
@@ -145,7 +140,7 @@
                  
             </div>
             
-            <div class='col-12 col-lg-4 col-md-4 justify-content-center' style='display: none;' id='liquidacion-sucesiones-container'>
+            <div class='col-12 col-lg-6 col-md-6 justify-content-center' style='display: none;' id='liquidacion-sucesiones-container'>
                   <div class='text-center column-bg-file p-2' style='width: 250px; margin: 0px auto;'>
                 
                     <div class='d-flex'>
@@ -162,7 +157,7 @@
                  
             </div>
             
-            <div class='col-12 col-lg-4 col-md-4 justify-content-center mt-2' style='display: none;' id='escritura-herencia-container'>
+            <div class='col-12 col-lg-6 col-md-6 justify-content-center mt-2' style='display: none;' id='escritura-herencia-container'>
                 <div class='text-center column-bg-file p-2' style='width: 250px; margin: 0px auto;'>
                     <div class='d-flex justify-content-center'>
                         <p class='mt-2 mb-2 cursor-pointer' id='title-escritura-herencia' ><strong> Escritura de herencia. </strong></p>
@@ -179,7 +174,7 @@
             </div>
             
             
-            <div class='col-12 col-lg-4 col-md-4 justify-content-center' style='display: none;' id='cif-empresa-vendedora'>
+            <div class='col-12 col-lg-6 col-md-6 justify-content-center' style='display: none;' id='cif-empresa-vendedora'>
                   <div class='text-center column-bg-file p-2' style='width: 250px; margin: 0px auto;'>
                 
                     <div class='d-flex'>
@@ -204,13 +199,13 @@
     </div>
     
     <div class='row justify-content-center '>
-        <div class='col-12 col-md-12 col-lg-12 mt-3 p-0'>
+        <div class='col-12 col-md-12 col-lg-12 mt-3 text-left'>
              <!-- documentos comprador -->
-            <h3 class='subtitle rounded-t-md '>Documentaci&oacuten del comprador</h3>
+            <h3 class='mb-1 font-weight-bold principal-color '>Documentaci&oacuten del comprador</h3>
         </div>
     </div>
     
-    <div class='row border-box-files'>
+    <div class='row'>
         <div class='col-12 col-md-6 col-lg-6 p-0' id='nif-vendedor-frontal'>
              <div class='text-center column-bg-file p-2' style='width: 250px; margin: 0px auto;'>
             
@@ -248,14 +243,14 @@
     
     
     <div class='row justify-content-center'>
-         <div class='col-12 col-md-12 col-lg-12 mt-3 p-0'>
-         <!-- documentos comprador -->
-        <h3 class='subtitle rounded-t-md '>Documentaci&oacuten del veh&iacuteculo</h3>
+        <div class='col-12 col-md-12 col-lg-12 mt-3 text-left'>
+            <!-- documentos comprador -->
+            <h3 class='mb-1 font-weight-bold principal-color'>Documentaci&oacuten del veh&iacuteculo</h3>
         </div>
     </div>
     
-    <div class='row border-box-files'>
-        <div class='col-12 col-md-4 col-lg-4 p-0' id='ficha-tecnica-vehiculo-frontal'>
+    <div class='row'>
+        <div class='col-12 col-md-6 col-lg-6 p-0' id='ficha-tecnica-vehiculo-frontal'>
             <div class='text-center column-bg-file p-2' style='width: 250px; margin: 0px auto;'>
                 
                 <div class='d-flex flex-column' style='margin: 0px auto;'>
@@ -274,7 +269,7 @@
             
         </div>
         
-         <div class='col-12 col-md-4 col-lg-4 p-0' id='ficha-tecnica-vehiculo-trasero'>
+         <div class='col-12 col-md-6 col-lg-6 p-0' id='ficha-tecnica-vehiculo-trasero'>
              <div class='text-center column-bg-file p-2' style='width: 250px; margin: 0px auto;'>
                 
                 <div class='d-flex  flex-column'>
@@ -291,7 +286,7 @@
             </div>
         </div>
         
-         <div class='col-12 col-lg-4 col-md-4 p-0' id='permiso-circulacion'>
+        <div class='col-12 col-lg-6 col-md-6 mt-1 p-0' id='permiso-circulacion'>
             <div class='text-center column-bg-file p-2' style='width: 250px; margin: 0px auto;' >
     
                 <div class='d-flex  flex-column'>
@@ -307,9 +302,9 @@
                 </div>
             </div>
              
-         </div>
+        </div>
          
-        <div class='col-12 col-lg-4 col-md-4 mt-1 p-0' id='factura-venta' style='display: none;'>
+        <div class='col-12 col-lg-6 col-md-6 mt-1 p-0' id='factura-venta' style='display: none;'>
             <div class='text-center column-bg-file p-2' style='width: 250px; margin: 0px auto;' >
                 <div class='d-flex  flex-column'>
                     <p class='mt-2 mb-2 cursor-pointer' id='title-factura-vehiculo' ><strong> Factura de venta del veh&iacuteculo </strong></p>
@@ -327,7 +322,7 @@
              
          </div>
          
-         <div class='col-12 col-lg-4 col-md-4 mt-1 p-0' id='informe-dgt-container' style='display: none;'>
+         <div class='col-12 col-lg-6 col-md-6 mt-1 p-0' id='informe-dgt-container' style='display: none;'>
             <div class='text-center column-bg-file p-2' style='width: 250px; margin: 0px auto;' >
                 <div class='d-flex  flex-column'>
                     <p class='mt-2 mb-2 cursor-pointer' id='title-informe-dgt' ><strong> Informe del veh&iacuteculo de la DGT </strong></p>

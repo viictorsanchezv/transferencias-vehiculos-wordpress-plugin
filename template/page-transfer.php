@@ -319,9 +319,10 @@ include('insertar-contrato.php');
                     <div class="tab-pane fade p-4 max-height-tab" id="documentos" role="tabpanel" aria-labelledby="documentos-tab">
                         <div class='row justify-content-center'>
                             <div class='col-12 col-md-12 col-lg-12 text-center mt-3 mb-3 align-title'>
-                                <h3 class='title-border'> Documentaci&oacuten necesaria</h3>
+                                <h3 class='title-tab padding-tab pt-3'> Documentos necesarios</h3>
                             </div>
                         </div>
+                        <div class='separator'></div>
                         <div class='row justify-content-center'>
                             <div class='col-12 col-md-12 col-lg-12 text-center'>
                                 <?php include('section-documentation.php'); ?>
