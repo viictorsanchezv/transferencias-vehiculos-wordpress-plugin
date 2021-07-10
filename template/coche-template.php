@@ -233,7 +233,9 @@
               </div>
             </div>
           </div>
-        
+      
+
+
         <!-- datos adicionales del vehiculo -->
         <div class='separator'></div>
         <div id='datos-adicionales' style='display:none;' >
