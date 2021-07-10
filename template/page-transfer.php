@@ -137,9 +137,9 @@ include('insertar-contrato.php');
                     </div>
                     
                     <!-- Comprador  -->
-                    <div class="tab-pane fade p-4 max-height-tab" id="comprador" role="tabpanel" aria-labelledby="comprador-tab">
+                    <div class="tab-pane fade max-height-tab" id="comprador" role="tabpanel" aria-labelledby="comprador-tab">
                         <div class='row justify-content-center'>
-                            <div class='col-12 col-md-12 col-lg-12 text-center mt-3 mb-3 align-title'>
+                            <div class='col-12 col-md-12 col-lg-12 text-center align-title'>
                                 <div class='row w-100'>
                                     <div class='col-12 col-md-6 col-lg-6'>
                                         <h3 class='title-border m-auto' id='titulo-comprador' > Datos del comprador</h3>    
@@ -171,14 +171,15 @@ include('insertar-contrato.php');
                     </div>
                     <!-- Vendedor  -->
                     
-                    <div class="tab-pane fade p-4 max-height-tab" id="vendedor" role="tabpanel" aria-labelledby="vendedor-tab">
+                    <div class="tab-pane fade max-height-tab" id="vendedor" role="tabpanel" aria-labelledby="vendedor-tab">
                         <div class='row justify-content-center'>
-                            <div class='col-12 col-md-12 col-lg-12 text-center mt-3 mb-3 align-title'>
-                                <h3 class='title-border' id='titulo-vendedor'> Datos del vendedor</h3>
+                            <div class='col-12 col-md-12 col-lg-12 text-center align-title'>
+                                <h3 class='title-tab padding-tab pt-3' id='titulo-vendedor'> Datos del vendedor</h3>
                             </div>
                         </div>
-                        <div class='row justify-content-center'>
-                            <div class='col-12 col-md-12 col-lg-12 text-center'>
+                        <div class='separator'></div>
+                        <div class='row m-0 justify-content-center'>
+                            <div class='col-12 p-0 col-md-12 col-lg-12 text-center'>
                                 <?php include('section-vendedor.php'); ?>
                             </div>
                         </div>
