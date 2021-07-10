@@ -62,7 +62,8 @@ body{
     color: #FFFF;
     background-color: rgba(255, 255, 255,0.15);
     border-color: #dee2e6 #dee2e6 #fff;
-    margin: 0px auto;
+    margin: 9px 0px;
+    padding-left: 15px;
 }
 
 .nav-tabs .nav-link {
@@ -71,7 +72,8 @@ body{
     border-top-left-radius: .25rem;
     border-top-right-radius: .25rem;
     background: transparent;
-    margin: 8px auto;
+    margin: 8px 0px;
+    transition: all 0.5s ease;
 }
 
 .button-aceptar-cambio{
