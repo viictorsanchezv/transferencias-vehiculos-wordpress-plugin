@@ -25,6 +25,10 @@ body{
     border-radius: 0px;
 }
 
+.bg-blue{
+    background-color: #0000BA;
+}
+
 .button-save{
     border: 1px solid #0000ba;
     background: #FFF;
@@ -52,6 +56,22 @@ body{
 
 .modal-cambio-vehiculo{
     background: rgba(61, 47, 61, 0.53);
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #FFFF;
+    background-color: rgba(255, 255, 255,0.15);
+    border-color: #dee2e6 #dee2e6 #fff;
+    margin: 0px auto;
+}
+
+.nav-tabs .nav-link {
+    margin-bottom: -1px;
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    background: transparent;
+    margin: 8px auto;
 }
 
 .button-aceptar-cambio{
@@ -318,8 +338,8 @@ body{
 }
 
 .active .step-number{
-     border: 2px solid #0000ba;
-     color: #0000ba;
+     border: 2px solid #FFF;
+     color: #FFF;
 }
 
 .step-number{
@@ -340,6 +360,20 @@ body{
 .step-title-font-size {
    font-size: 15px; 
    color: #494c5a;
+}
+
+.paragraph-white{
+    font-size: 19px;
+    width: 76%;
+    line-height: 20px;
+}
+
+.position-total{
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px solid #FFF;
+    padding: 20px;
+    margin-left: -24px;
 }
 
 .question-circle{
@@ -385,6 +419,17 @@ body{
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover + .tooltiptext {
   visibility: visible;
+}
+
+.wrap-container{
+    flex-wrap:wrap;
+    display:flex;
+}
+
+.ver-todo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @media (min-width: 1200px){
