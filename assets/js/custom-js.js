@@ -16,9 +16,14 @@
     let cocheHerencia       = document.getElementById('coche-herencia');
     let provincia           = document.getElementById('coche-provincia');
     const sideURL           = document.getElementById('web-url').value;
+    let verTodo             = document.getElementById('boton-ver-todo'); 
+    let ocultarrTodo        = document.getElementById('closed-boton'); 
 
-
-    
+    const ITPorcentaje = {
+        'valencia': 8,
+        'madrid': 4
+        
+    }
     
     const correccion = {
         '1': 84,
@@ -1053,6 +1058,17 @@
         document.getElementById('modalPrecioValidate').style.display = 'none'; 
     }
     
+    /**validacion botones ver todo */
+    verTodo.onclick= function(){
+        document.getElementById('seccion-ver-todo').classList.add("up-section"); 
+        document.getElementById('seccion-ver-todo').classList.remove("down-section");
+    }
+    ocultarrTodo.onclick= function(){
+        document.getElementById('seccion-ver-todo').classList.add("down-section"); 
+        document.getElementById('seccion-ver-todo').classList.remove("up-section");
+    }
+  
+
     
     let empresaCompradora = document.getElementById('empresa-comprador');
     
