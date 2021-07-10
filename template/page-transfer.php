@@ -88,11 +88,130 @@ include('insertar-contrato.php');
                         <p>----</p>
                     </div>
                     <div class='col-12 col-md-5 col-lg-5 text-center ver-todo'>
-                        <a style='text-decoration: underline;' class='w-100 text-light' href="#">VER TODO</a>
+                        <button type="button" style='text-decoration: underline; background: none; border: 0;' class='w-100 text-light' id="boton-ver-todo" >VER TODO</button>
                     </div>
                 </div> 
             </div>
-            
+            <!-- actualizar -->
+            <div class="ver-todo-valores down-section" id="seccion-ver-todo">
+                <div class='row'>
+                    <div class='col-12 closed-boton ' id="closed-boton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                        Cerrar
+                    </div>
+                </div>
+                <div class='row section-calculos'>
+                    <div class='col-12' id="">
+                        <h3>Cálculo ITP</h3>
+
+                        <div class="tabla-calculos">
+                            <div class="row">
+                                <div class="col-4 title border-row">
+                                    <span >Precio de venta</span>
+                                </div>
+                                <div class="col-8 valor border-row">
+                                    <span id='precio-venta'>11111 €</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 title border-row">
+                                    <span >Factor de corrección</span>
+                                </div>
+                                <div class="col-8 valor border-row ">
+                                    <span id='factor-correccion'>100,00 %</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 title">
+                                    <span >Valor según precio de venta</span>
+                                </div>
+                                <div class="col-8 valor">
+                                    <span id='valoracion-precio-venta'>111111111 €</span>
+                                </div>
+                            </div>
+                            <div class="row resultados">
+                                <div class="col-4 title">
+                                    <span>ITP(8,00 %)</span>
+                                </div>
+                                <div class="col-8 valor">
+                                    <span id='itp-total'>11111,111111</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class='row section-calculos costes'>
+                    <div class='col-12' id="">
+                        <h3>Costes</h3>
+
+                        <div class="tabla-calculos">
+                            <div class="row">
+                                <div class="col-4 title border-row">
+                                    <span >ITP</span>
+                                </div>
+                                <div class="col-8 valor border-row">
+                                    <span id='itp-costes' >11111 €</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 title border-row">
+                                    <span>Tasas infome de transderencia de vehículo</span>
+                                </div>
+                                <div class="col-8 valor border-row ">
+                                    <span id='tasa-transferencia-tabla'>11111 €</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 title">
+                                    <span>Tasas informe de tráfico</span>
+                                </div>
+                                <div class="col-8 valor">
+                                    <span id='informe-trafico-tabla'>111111111 €</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 title">
+                                    <span  id='alta-baja-tabla'>Tasas alta de baja temporal</span>
+                                </div>
+                                <div class="col-8 valor">
+                                    <span >111111111 €</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 title">
+                                    <span>Tasas cambios ficha técnica en ITV</span>
+                                </div>
+                                <div class="col-8 valor">
+                                    <span id='ficha-tecnica-tabla' >111111111 €</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 title">
+                                    <span>Tramiración(Horarios, derechos colegiales, mensajería)</span>
+                                </div>
+                                <div class="col-8 valor">
+                                    <span id='tramitacion-tabla'>111111111 €</span>
+                                </div>
+                            </div>
+                            <div class="row resultados">
+                                <div class="col-4 title">
+                                    <span>Toral (IVA incluido)</span>
+                                </div>
+                                <div class="col-8 valor">
+                                    <span id='total-tabla'>11111,111111</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- -->   
         </div>
 
         <div class='col-lg-7 col-md-7 col-sm-12 col-12'>

@@ -470,3 +470,83 @@ body{
 }
     
 }
+
+/** estilos barra lateral ver todo**/
+.ver-todo-valores{
+    height: 100%;
+    width: 100%;
+    background: #0000BA;
+    position: absolute;
+    right: 0;
+    left: 0;
+    -webkit-transition: all 1.0s linear;
+    -moz-transition: all 1.0s linear;
+    -o-transition: all 1.0s linear;
+    -ms-transition: all 1.0s linear;    
+    transition: all 1.0s linear;
+    padding: 20px 40px;
+}
+.up-section{
+    top:0px;
+}
+.down-section{
+    top: 100%;
+}
+.bg-blue{
+    overflow-y: hidden;
+}
+.closed-boton{
+    color: #ffffffbf;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Noto Sans', sans-serif;
+    padding-left: 25px;
+}
+.section-calculos {
+    margin-top: 20px;
+}
+.section-calculos h3{
+    background: #ffffff54;
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
+.section-calculos {
+    margin-top: 20px;
+}
+.section-calculos .row{
+    margin: 0;
+    padding: 0 17px;
+}
+.section-calculos .row div{
+    margin: 0;
+    padding: 15px 0;
+}
+.section-calculos .row div.border-row{
+    border-bottom: 1px solid #ffffff6e;
+}
+.section-calculos .title{
+    font-size: 12px;
+    color: white;
+}
+.section-calculos .valor{
+    font-size: 13px;
+    text-align: right;
+    color: white;
+}
+.section-calculos  .resultados{
+    background: #ffffff54;
+}
+.section-calculos  .resultados span{
+    font-weight: 800;
+    font-size: 13px;
+}
+.section-calculos  .resultados span{
+    font-weight: 800;
+}
+.section-calculos.costes{
+    margin-top: 60px;
+}
