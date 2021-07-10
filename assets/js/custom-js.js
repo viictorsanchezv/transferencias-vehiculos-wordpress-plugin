@@ -15,12 +15,10 @@
     let cocheAlta           = document.getElementById('coche-alta_vehiculo');
     let cocheHerencia       = document.getElementById('coche-herencia');
     let provincia           = document.getElementById('coche-provincia');
+    const sideURL           = document.getElementById('web-url').value;
+
+
     
-    const ITPorcentaje = {
-        'valencia': 8,
-        'madrid': 4
-        
-    }
     
     const correccion = {
         '1': 84,
@@ -34,6 +32,18 @@
         '9': 19,
         '10': 17,
         '11': 13,
+    }
+    
+    let precioNotificacion = document.getElementById('precio-notificacion');
+    
+    precioNotificacion.onchange = function (){
+        if(precioNotificacion.checked == true){
+            document.getElementById('precio-notificacion-container').style.display = 'table-row';
+            sumarITP(50, true);
+        }else{
+            document.getElementById('precio-notificacion-container').style.display = 'none';
+            sumarITP(50, false);
+        }
     }
     
     cocheHerencia.onchange = function (){
@@ -58,6 +68,7 @@
             document.getElementById('title-nifv-trasero').innerHTML = '<strong>  NIF del causante (trasero)  </strong>';
               
             document.getElementById('liquidacion-sucesiones-container').style.display = 'flex';
+            document.getElementById('escritura-herencia-container').style.display = 'flex';
             
             sumarITP( parseFloat(document.getElementById('itp-costes').textContent) ,false);
         }else{
@@ -79,7 +90,9 @@
             document.getElementById('title-nifv-trasero').innerHTML = '<strong>  NIF del vendedor (trasero)  </strong>';
             
             
-            document.getElementById('liquidaciones-sucesiones-container').style.display = 'none';  
+            document.getElementById('liquidacion-sucesiones-container').style.display = 'none';
+            document.getElementById('escritura-herencia-container').style.display = 'none';
+            
             document.getElementById('itp-costes-tabla').style.display = 'table-row';
             document.getElementById('calculo-itp-total').style.display = 'table-row';
             sumarITP( parseFloat(document.getElementById('itp-costes').textContent) ,true);
@@ -148,6 +161,7 @@
     
     cocheFactura.onchange = function(){
         let labelCocheFactura = document.getElementById('coche-factura-label').textContent;
+        
         if(labelCocheFactura == 'Si'){
             document.getElementById('coche-factura-label').textContent = 'No';
             document.getElementById('gestion-container').style.display = 'block';
@@ -172,6 +186,8 @@
             document.getElementById('modalPrecioValidate').style.display = 'block';
         }
         
+        vendedorEmpresa(cocheFactura);
+        
     }
     
     marca.onchange = function (event){    
@@ -181,7 +197,7 @@
         
     }
 
-    matriculacion.onchange = function (event){
+    matriculacion.onchange = async function (event){
         
         
         if(matriculacion.value != '' && marca.value != ''){
@@ -189,45 +205,79 @@
         }
         
         let matricula = document.getElementById('coche-date').value;
-        
-        if(factorCorreccion(matricula) != undefined ){
-           document.getElementById('factor-correccion').textContent = factorCorreccion(matricula)+',00 % ';   
+        const data = await factorCorreccion(matricula).then(data => data)
+            
+
+        if(data != undefined ){
+            document.getElementById('factor-correccion').textContent = data+',00 % ';
+            let precioTabla = parseInt(document.getElementById('valoracion-precio-venta').textContent);
+            
+            if(precioTabla > 0 ){
+                let valorReal = document.getElementById('valoracion-real');
+                
+                valorReal.textContent = (parseFloat(precioTabla)*(parseFloat(data)/100)).toFixed(2);
+                valorReal = document.getElementById('valoracion-real');
+                //asignar el valor minimo acorde al porcentaje de correccion
+                cochePrecio.min = (parseInt(precioTabla)*(parseFloat(data)/100));
+                
+                sumarITP(parseFloat(document.getElementById('itp-total').textContent),false);
+                
+                let provincia = document.getElementById('coche-provincia');
+                
+                let cvf = document.getElementById('fiscal-tabla').textContent;
+                
+                const itp = await calculoITP(provincia.value, parseInt(cvf)).then(data => data)
+                
+                console.log(itp);
+                if(parseFloat(itp) > 10){
+                    
+                    document.getElementById('itp-total').textContent = (parseFloat(itp));
+                    document.getElementById('itp-costes').textContent =  (parseFloat(itp)).toString()+' €'; 
+                }else{
+                    document.getElementById('itp-costes').textContent =  (parseFloat(valorReal.textContent)*(parseFloat(itp)/100)).toFixed(0).toString()+' €';
+                    document.getElementById('itp-total').textContent  = (parseFloat(valorReal.textContent)*(parseFloat(itp)/100)).toFixed(0).toString()+' €';   
+                }
+                
+                 sumarITP( parseFloat(document.getElementById('itp-costes').textContent) ,true);
+            }
         }else{
            document.getElementById('factor-correccion').textContent = '-'; 
         }
+       
        
         
     }
 
     combustible.onchange = function (){
-        modeloContainer.style.display   = 'block';
+        modeloContainer.style.display   = 'flex';
         matriculacion                   = document.getElementById('coche-date');
         matriculacion                   = matriculacion.value.split('-');
-        let url = 'https://transferencia.staging.graphics/wp-json/gp/v1/car_model/?marca='+marca.value+'&combustible='+combustible.value+'&matriculacion='+matriculacion[0];
+        let url = sideURL+'/wp-json/gp/v1/car_model/?marca='+marca.value+'&combustible='+combustible.value+'&matriculacion='+matriculacion[0];
 
         fetch(url,{method: 'GET'})
             .then(function(response) {
                 return response.json();
             })
             .then(function(myJson) { 
-                 
-                for(let i =0; i<=modelo.length; i++){
-                    modelo.remove( modelo.options[i] ); 
+                var select = document.getElementById("coche-modelo");
+                var length = select.options.length;
+                for (i = length-1; i >= 0; i--) {
+                    select.options[i] = null;
                 }
 
-                modelo = document.getElementById("coche-modelo");
+                modelo3 = document.getElementById("coche-modelo");
                 
                 let defaultOption = document.createElement('option');
                 defaultOption.text  = 'Seleccione el modelo de vehículo';
                 defaultOption.value = '';
-                modelo.appendChild(defaultOption);
+                modelo3.appendChild(defaultOption);
                 
                 Object.entries(myJson).forEach(([key, value]) => {
                     let option = document.createElement("option");
                         option.text  =  value.post_title;
                         option.value = value.ID;
                     
-                        modelo.appendChild(option);
+                        modelo3.appendChild(option);
                 });
             }); 
 
@@ -235,7 +285,7 @@
     }
 
     modelo.onchange = function(){
-        let url = 'https://transferencia.staging.graphics/wp-json/gp/v1/modelo_tabla/?modelo='+modelo.value;
+        let url = sideURL+'/wp-json/gp/v1/modelo_tabla/?modelo='+modelo.value;
         fetch(url,{method: 'GET'})
             .then(function(response) {
                 return response.json();
@@ -270,18 +320,25 @@
 
     }
 
-    provincia.onchange = function(){
+    provincia.onchange = async function(){
         let facturaValidacion = document.getElementById('coche-factura').checked;
         let ITPTotal = 0;
         document.getElementById('datos-adicionales').style.display = 'block';
         
         if(provincia.value != '' && facturaValidacion == false ){
+            let cvf     = document.getElementById('fiscal-tabla').textContent;
             
          
             document.getElementById('calculo-itp').style.display = 'block';
             // insertar informacion del porcentaje de ITP en tabla
+            const data = await calculoITP(provincia.value, cvf).then(data => data)
             
-            document.getElementById('porcentaje-itp').textContent = 'ITP ( '+calculoITP(provincia.value)+',00 % )';
+            if(parseInt(data) >= 10){
+                document.getElementById('porcentaje-itp').textContent = 'ITP Precio Fijo ( '+data+' )';
+            }else{
+                document.getElementById('porcentaje-itp').textContent = 'ITP ( '+data+' % )';    
+            }
+            
             document.getElementById('tasa-transferencia').style.display = 'table-row';
             document.getElementById('informe-trafico').style.display = 'table-row';
             document.getElementById('tramitacion').style.display = 'table-row';
@@ -295,8 +352,23 @@
             // se actualiza en base al precio del vehiculo
             
             let ITPBase =  parseFloat(document.getElementById('valoracion-precio-venta').textContent);
-            document.getElementById('itp-costes').textContent =  (ITPBase)*(parseInt(calculoITP(provincia.value))/100).toString()+' €';
-            document.getElementById('itp-total').textContent  = (ITPBase)*(parseInt(calculoITP(provincia.value))/100).toString()+' €';
+            if(parseInt(data) >= 10 ){
+                document.getElementById('itp-costes').textContent =  (parseFloat(data) ).toString()+' €';
+                document.getElementById('itp-total').textContent  = (parseFloat(data) ).toString()+' €';   
+            }else{
+                let factorCorreccion = document.getElementById('factor-correccion').textContent;
+                let valorReal = document.getElementById('valoracion-real');
+    
+                valorReal.textContent = (parseFloat(ITPBase)*(parseFloat(factorCorreccion)/100)).toFixed(2);
+                
+                //asignar el valor minimo acorde al porcentaje de correccion
+                cochePrecio.min = (parseInt(ITPBase)*(parseFloat(factorCorreccion)/100));
+                
+                
+                document.getElementById('itp-costes').textContent =  (parseFloat(valorReal.textContent)*(parseFloat(data)/100)).toFixed(0).toString()+' €';
+                document.getElementById('itp-total').textContent  = (parseFloat(valorReal.textContent)*(parseFloat(data)/100)).toFixed(0).toString()+' €';   
+            }
+            
             sumarITP( parseFloat(document.getElementById('itp-costes').textContent) ,true);
             
         }   
@@ -305,14 +377,16 @@
     function combustibleDislplay(){
         combustibleContainer.style.display = 'block';
 
-        let url = 'https://transferencia.staging.graphics/wp-json/gp/v1/combustible/?marca='+marca.value;
+        let url = sideURL+'/wp-json/gp/v1/combustible/?marca='+marca.value;
         fetch(url,{method: 'GET'})
             .then(function(response) {
                 return response.json();
             })
-            .then(function(myJson) {  
-                for(let i =0; i<=combustible.length; i++){
-                    combustible.remove( combustible.options[i] ); 
+            .then(function(myJson) {
+               
+                var length = combustible.options.length;
+                for (i = length-1; i >= 0; i--) {
+                    combustible.options[i] = null;
                 }
 
                 combustible = document.getElementById("coche-combustible");
@@ -338,11 +412,21 @@
     let motoFactura = document.getElementById('factura-moto');
     let motoMarca   = document.getElementById('moto-marca');
     let motoCambio  = document.getElementById('moto-cambio');
-    let motoFichaTecnica = document.getElementById('moto-ficha_tecnica');
-    let motoAlta        = document.getElementById('moto-alta_vehiculo');
-    let motoHerencia    =  document.getElementById('moto-herencia');
-    let motoPrecio      = document.getElementById('moto-precio');
+    let motoFichaTecnica        = document.getElementById('moto-ficha_tecnica');
+    let motoAlta                = document.getElementById('moto-alta_vehiculo');
+    let motoHerencia            =  document.getElementById('moto-herencia');
+    let motoPrecio              = document.getElementById('moto-precio');
+    let motoPrecioNotificacion  = document.getElementById('moto-precio-notificacion');
     
+    motoPrecioNotificacion.onchange = function (){
+        if(motoPrecioNotificacion.checked == true){
+            document.getElementById('precio-notificacion-container').style.display = 'table';
+            sumarITP(50, true);
+        }else{
+            document.getElementById('precio-notificacion-container').style.display = 'none';
+            sumarITP(50, false);
+        }
+    }
     
     motoPrecio.onkeypress = function(){
         let valorTable = document.getElementById('valoracion-precio-venta').textContent;
@@ -354,7 +438,7 @@
         
     }
     
-    motoPrecio.onchange = function() {
+    motoPrecio.onchange = async function() {
        let valorTable = document.getElementById('valoracion-precio-venta').textContent;
 
        if(parseInt(valorTable) > parseInt(motoPrecio.value) ){
@@ -369,9 +453,19 @@
        }else{
            
             let provincia = document.getElementById('moto-provincia');
-            document.getElementById('precio-venta').textContent = motoPrecio.value; 
-            document.getElementById('itp-total').textContent = parseInt(motoPrecio.value)*(parseInt(calculoITP(provincia.value))/100);
-            document.getElementById('itp-costes').textContent =  (parseInt(motoPrecio.value)*(parseInt(calculoITP(provincia.value))/100)).toString()+' €';
+
+            const data = await calculoITP(provincia.value).then(data => data)
+            if(parseInt(data) >= 10 ){
+                document.getElementById('precio-venta').textContent = motoPrecio.value; 
+                document.getElementById('itp-total').textContent = (parseFloat(data));
+                document.getElementById('itp-costes').textContent =  (parseFloat(data)).toString()+' €';   
+            }else{
+                document.getElementById('precio-venta').textContent = motoPrecio.value; 
+                document.getElementById('itp-total').textContent = parseInt(motoPrecio.value)*(parseFloat(data)/100);
+                document.getElementById('itp-costes').textContent =  (parseInt(motoPrecio.value)*(parseFloat(data)/100)).toString()+' €';
+            }
+    
+            
             
             sumarITP( parseFloat(document.getElementById('itp-costes').textContent) ,true);
             
@@ -383,8 +477,48 @@
         if(motoHerencia.checked == true){
             document.getElementById('itp-costes-tabla').style.display = 'none';
             document.getElementById('calculo-itp-total').style.display = 'none';
+            
+            document.getElementById('comprador-title').textContent = 'Heredero';
+            document.getElementById('comprador-datos-personales').textContent = 'Heredero';
+            document.getElementById('comprador-direccion-datos').textContent = 'Heredero';
+            document.getElementById('title-comprador-section').textContent = 'Datos personales del heredero';
+            document.getElementById('titulo-comprador').textContent = 'Datos del heredero';
+            document.getElementById('title-nifc-frontal').innerHTML = '<strong> NIF del heredero (frontal) </strong>';
+            document.getElementById('title-nifc-trasero').innerHTML = '<strong> NIF del heredero (trasero) </strong>';
+            
+            document.getElementById('vendedor-title').textContent = 'Causante';
+            document.getElementById('vendedor-datos-personales').textContent = 'Causante';
+            document.getElementById('vendedor-direccion-datos').textContent = 'Causante';
+            document.getElementById('title-vendedor-section').textContent = 'Datos personales del causante';
+            document.getElementById('titulo-vendedor').textContent = 'Datos del causante';
+            document.getElementById('title-nifv-frontal').innerHTML = '<strong>  NIF del causante (frontal)  </strong>';
+            document.getElementById('title-nifv-trasero').innerHTML = '<strong>  NIF del causante (trasero)  </strong>';
+              
+            document.getElementById('liquidacion-sucesiones-container').style.display = 'flex';
+            document.getElementById('escritura-herencia-container').style.display = 'flex';
+            
             sumarITP( parseFloat(document.getElementById('itp-costes').textContent) ,false);
         }else{
+            
+            document.getElementById('comprador-title').textContent = 'Comprador';
+            document.getElementById('comprador-datos-personales').textContent = 'Comprador';
+            document.getElementById('comprador-direccion-datos').textContent = 'Comprador';
+            document.getElementById('title-comprador-section').textContent = 'Datos personales del comprador';
+            document.getElementById('titulo-comprador').textContent = 'Datos del comprador';   
+            document.getElementById('title-nifc-frontal').innerHTML = '<strong> NIF del comprador (frontal) </strong>';
+            document.getElementById('title-nifc-trasero').innerHTML = '<strong> NIF del comprador (trasero) </strong>';
+               
+            document.getElementById('vendedor-title').textContent = 'Vendedor';
+            document.getElementById('vendedor-datos-personales').textContent = 'Vendedor';
+            document.getElementById('vendedor-direccion-datos').textContent = 'Vendedor';
+            document.getElementById('title-vendedor-section').textContent = 'Datos personales del vendedor';
+            document.getElementById('titulo-vendedor').textContent = 'Datos del vendedor';
+            document.getElementById('title-nifv-frontal').innerHTML = '<strong>  NIF del vendedor (frontal)  </strong>';
+            document.getElementById('title-nifv-trasero').innerHTML = '<strong>  NIF del vendedor (trasero)  </strong>';
+            
+            document.getElementById('liquidacion-sucesiones-container').style.display = 'none'; 
+            document.getElementById('escritura-herencia-container').style.display = 'flex';
+
             document.getElementById('itp-costes-tabla').style.display = 'table-row';
             document.getElementById('calculo-itp-total').style.display = 'table-row';
             sumarITP( parseFloat(document.getElementById('itp-costes').textContent) ,true);
@@ -412,18 +546,18 @@
         }
     }
     
-    motoCambio.onchange = function (){
+    // motoCambio.onchange = function (){
         
-        if(motoCambio.checked == true ){
-            document.getElementById('moto-servicio-destinara-container').style.display = 'block';
+    //     if(motoCambio.checked == true ){
+    //         document.getElementById('moto-servicio-destinara-container').style.display = 'block';
             
-        }else{
-            document.getElementById('moto-destinara').value = '';
-            document.getElementById('moto-servicio-destinara-container').style.display = 'none';
+    //     }else{
+    //         document.getElementById('moto-destinara').value = '';
+    //         document.getElementById('moto-servicio-destinara-container').style.display = 'none';
             
-        }
+    //     }
         
-    }
+    // }
     
     motoFactura.onchange = function (){
         let labelMotoFactura = document.getElementById('moto-factura-label').textContent;
@@ -447,21 +581,35 @@
     }
     
     cilindrada.onchange = function (){
-        document.getElementById('moto-precio').min = '600';
-        if( cilindrada.value != '' && dateMoto.value != '' ){
-            motoDisplay(); 
-            
-        }
-        document.getElementById('valoracion-precio-venta').textContent = '600';
+        
+        let url = sideURL+'/wp-json/gp/v1/cilindrada/?cilindrada='+cilindrada.value;
+        
+        fetch(url,{method: 'GET'})
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(myJson) { 
+                document.getElementById('moto-precio').min = myJson;
+                //console.log(cilindrada.value);
+                if( cilindrada.value != '' ){
+                    motoDisplay(); 
+                    document.getElementById('valoracion-precio-venta').textContent = myJson;
+                }else{
+                    motoDisplay(); 
+                }
+                
+              
+            }); 
      
     }
     
     let dateMoto = document.getElementById('moto-date');
     
-    dateMoto.onchange = function(){
+    dateMoto.onchange = async function(){
+        const data = await factorCorreccion(dateMoto.value).then(data => data)
         if(dateMoto.value != '' && cilindrada.value != '' ){
             motoDisplay();
-            document.getElementById('factor-correccion').textContent = factorCorreccion(dateMoto.value)+',00 % ';
+            document.getElementById('factor-correccion').textContent = data+',00 % ';
         }
     }
     
@@ -471,15 +619,24 @@
     
     let provinciaMoto = document.getElementById('moto-provincia');
     
-    provinciaMoto.onchange = function(){
-        
+    provinciaMoto.onchange = async function(){
+
         let facturaValidacion = document.getElementById('factura-moto').checked;
         let ITPTotal = 0;
         document.getElementById('datos-adicionales-moto').style.display = 'block';
+
+        const data = await calculoITP(provinciaMoto.value).then(data => data)
+            //console.log('calculoITP '+data);
+
         if(provinciaMoto.value != '' && facturaValidacion == false ){
             document.getElementById('calculo-itp').style.display = 'block';
             // insertar informacion del porcentaje de ITP en tabla
-            document.getElementById('porcentaje-itp').textContent = 'ITP ( '+calculoITP(provinciaMoto.value)+',00 % )';
+            if( parseInt(data) >= 10 ){
+                document.getElementById('porcentaje-itp').textContent = 'ITP Precio Fijo ( '+data+' )';
+            }else{
+                document.getElementById('porcentaje-itp').textContent = 'ITP ( '+data+' % )';    
+            }
+            
             document.getElementById('tasa-transferencia').style.display = 'table-row';
             document.getElementById('informe-trafico').style.display = 'table-row';
             document.getElementById('tramitacion').style.display = 'table-row';
@@ -492,9 +649,7 @@
         
     }
     
-    
-    // moto tab validacion del modal o  popup 
-    
+    // moto tab validacion del modal o  popup  
     let motoTab = document.getElementById('moto-tab');
     
     motoTab.onclick = function(){
@@ -602,10 +757,10 @@
     
     aceptarCambio.onclick = function(){
         document.getElementById('coche-marca').value = '';
-        let combustibleCoche = document.getElementById('combustible-container');
-        let modeloContainerCoche = document.getElementById('modelo-container');
-        let tablaCoche = document.getElementById('tabla');
-        let datosAdicionales = document.getElementById('datos-adicionales');
+        let combustibleCoche            = document.getElementById('combustible-container');
+        let modeloContainerCoche        = document.getElementById('modelo-container');
+        let tablaCoche                  = document.getElementById('tabla');
+        let datosAdicionales            = document.getElementById('datos-adicionales');
         document.getElementById('coche-modelo').value = '';
         document.getElementById('modal-cambio-vehiculo').style.display = 'none';
         combustibleCoche.style.display = 'none';
@@ -693,7 +848,7 @@
     
     
     // calculo del ITP
-    function factorCorreccion(d1){
+    async function factorCorreccion(d1){
         var today = new Date();
         var a = moment([d1]);
        
@@ -719,13 +874,71 @@
        
     }
     
-    function calculoITP( provincia ){
-        let cocheDateCalculo  = matriculacion.value;
+    const fetchData = (provincia,cvf=null,cc=null,precio=null,d1=null) => {
         
-        var porcentajeITP = ITPorcentaje[provincia];
-        return porcentajeITP;
+        var today = new Date();
+        var a = moment([d1]);
+       
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = yyyy + '-' + mm + '-' + dd;
+        
+        var b = moment([today]);
+    
+        var daydiff = b.diff(a, 'years');       // 1
+        if(cvf != null){
+            let url     = sideURL+'/wp-json/gp/v1/itp_final/?provincia='+provincia+'&cvf='+cvf+'&cc='+cc+'&year='+daydiff+'&precio='+precio+'&moto=0';
+
+            return  fetch(url).then(res => res.json())
+        }else{
+            let url     = sideURL+'/wp-json/gp/v1/itp_final/?provincia='+provincia+'&cc='+cc+'&year='+daydiff+'&precio='+precio+'&moto=1';
+
+            return  fetch(url).then(res => res.json())
+        }
+        
+            
+    }
+      
+    async function calculoITP(provincia,cvf=null) {
+
+        if(cvf != null){
+
+            let cc      = document.getElementById('cilindrada-tabla').textContent;
+            let precio  = document.getElementById('valoracion-precio-venta').textContent;
+            let d1      = document.getElementById('coche-date').value;
+
+            const data = await fetchData(provincia,cvf,cc,precio,d1).then(res => res)
+            //console.log('data await: '+data);
+            return data;
+        }else{
+            let cc      = document.getElementById('cilindrada').value;
+            let precio  = document.getElementById('valoracion-precio-venta').textContent;
+            let d1      = document.getElementById('moto-date').value;
+            cvf = null;
+            const data = await fetchData(provincia,cvf,cc,precio,d1).then(res => res)
+            //console.log('data await: '+data);
+            return data;
+        }
+
         
     }
+
+    // function calculoITP( provincia ){
+    //     //let cocheDateCalculo  = matriculacion.value;
+    //     let cvf     = document.getElementById('fiscal-tabla').textContent;
+    //     let url     = sideURL+'/wp-json/gp/v1/itp_final/?provincia='+provincia+'&cvf='+cvf;
+    //     let promise = fetch(url,{method: 'GET'})
+    //                 .then(function(response) {
+    //                     return response.json();
+    //                 })
+    //                 .then(function(myJson) { 
+    //                     return myJson;
+                        
+    //                 }); 
+    //     console.log(promise);
+   
+    // }
     
     cochePrecio.onkeypress = function(){
         let valorTable = document.getElementById('valoracion-precio-venta').textContent;
@@ -737,8 +950,8 @@
         
     }
     
-    cochePrecio.onchange = function() {
-       let valorTable = document.getElementById('valoracion-precio-venta').textContent;
+    cochePrecio.onchange = async function() {
+       let valorTable = document.getElementById('valoracion-real').textContent;
 
        if(parseInt(valorTable) > parseInt(cochePrecio.value) ){
            
@@ -750,21 +963,28 @@
        
            
        }else{
-           
             let provincia = document.getElementById('coche-provincia');
+            let cvf = document.getElementById('fiscal-tabla').textContent;
+            const data = await calculoITP(provincia.value,cvf).then(data => data)
+            
             let lastITP = document.getElementById('itp-total').textContent;
             
             sumarITP( parseFloat(lastITP) ,false);
             
-            document.getElementById('precio-venta').textContent = cochePrecio.value; 
-            document.getElementById('itp-total').textContent = parseInt(cochePrecio.value)*(parseInt(calculoITP(provincia.value))/100);
-            document.getElementById('itp-costes').textContent =  (parseInt(cochePrecio.value)*(parseInt(calculoITP(provincia.value))/100)).toString()+' €';
+            if( parseInt(data) >= 10 ){
+                document.getElementById('precio-venta').textContent = cochePrecio.value; 
+                document.getElementById('itp-total').textContent = (parseFloat(data));
+                document.getElementById('itp-costes').textContent =  (parseFloat(data)).toString()+' €'; 
+            }else{
+                document.getElementById('precio-venta').textContent = cochePrecio.value; 
+                document.getElementById('itp-total').textContent = parseInt(cochePrecio.value)*(parseFloat(data)/100);
+                document.getElementById('itp-costes').textContent =  (parseInt(cochePrecio.value)*(parseFloat(data)/100)).toString()+' €'; 
+            }
+            
             
             sumarITP( parseFloat(document.getElementById('itp-costes').textContent) ,true);
             
        }
-        
-        
         
     }
     
@@ -815,9 +1035,15 @@
         if(signo == true){
             ITPTotal += valor;
             document.getElementById('total-tabla').textContent = ITPTotal.toFixed(2)+' €';
+             document.getElementById('total-value').value = ITPTotal.toFixed(2);
         }else{
-            ITPTotal -= valor;
-            document.getElementById('total-tabla').textContent = ITPTotal.toFixed(2)+' €';
+            if(ITPTotal > 0){
+                ITPTotal -= valor;
+
+                document.getElementById('total-tabla').textContent = ITPTotal.toFixed(2)+' €';
+                document.getElementById('total-value').value = ITPTotal.toFixed(2);
+            }
+            
         }
     }
     
@@ -827,6 +1053,46 @@
         document.getElementById('modalPrecioValidate').style.display = 'none'; 
     }
     
+    
+    let empresaCompradora = document.getElementById('empresa-comprador');
+    
+    empresaCompradora.onchange = function(){
+        
+        if( empresaCompradora.checked == true ){
+            document.getElementById('nif-empresa-compradora-label').textContent = 'CIF de la empresa';
+            document.getElementById('container-direccion-comprador').style.display = 'none';
+            document.getElementById('primer-nombre-label').textContent = 'Nombre del apoderado';
+            document.getElementById('primer-apellido-label').textContent = 'Primer apellido del apoderado';
+            document.getElementById('segundo-apellido-label').textContent = 'Segundo apellido del apoderado';
+            document.getElementById('dni-apoderado-container').style.display = 'block';
+        }else{
+            document.getElementById('nif-empresa-compradora-label').textContent = 'NIF/NIE/CIF';
+            document.getElementById('container-direccion-comprador').style.display = 'flex';
+            document.getElementById('primer-nombre-label').textContent = 'Nombre';
+            document.getElementById('primer-apellido-label').textContent = 'Primer apellido';
+            document.getElementById('segundo-apellido-label').textContent = 'Segundo apellido';
+            document.getElementById('dni-apoderado-container').style.display = 'none';
+        }
+        
+    }
+    
+    function vendedorEmpresa(element){
+        if( element.checked == true ){
+            document.getElementById('nif-empresa-vendedora-label').textContent = 'CIF de la empresa';
+            document.getElementById('container-direccion-vendedor').style.display = 'none';
+            document.getElementById('primer-nombre-label-vendedor').textContent = 'Nombre del apoderado';
+            document.getElementById('primer-apellido-label-vendedor').textContent = 'Primer apellido del apoderado';
+            document.getElementById('segundo-apellido-label-vendedor').textContent = 'Segundo apellido del apoderado';
+            document.getElementById('dni-apoderado-container-vendedor').style.display = 'block';
+        }else{
+            document.getElementById('nif-empresa-vendedora-label').textContent = 'NIF/NIE/CIF';
+            document.getElementById('container-direccion-vendedor').style.display = 'flex';
+            document.getElementById('primer-nombre-label-vendedor').textContent = 'Nombre';
+            document.getElementById('primer-apellido-label-vendedor').textContent = 'Primer apellido';
+            document.getElementById('segundo-apellido-label-vendedor').textContent = 'Segundo apellido';
+            document.getElementById('dni-apoderado-container-vendedor').style.display = 'none';
+        }
+    }
     
     // caravana
     
@@ -863,15 +1129,5 @@
     // provinciaCaravana.onchange = function (){
     //     document.getElementById('datos-adicionales-caravana').style.display = 'block';
     // }
-    
-    
-
-        
-    
-    
-    
-    
-
-
 
  // };

@@ -27,10 +27,12 @@ include('insertar-contrato.php');
             
             <div class='row'>
                 <div class='col-12 col-lg-12 col-md-12 text-light'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                    </svg>
-                    SALIR
+                    <a class='text-light' href="<?php echo get_site_url(); ?>">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                        SALIR
+                    </a>
                 </div>
             </div>
             <img class='image-space mt-4' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/tramites.png'; ?>" alt="">
@@ -95,45 +97,47 @@ include('insertar-contrato.php');
             
         </div>
 
-        <div class='col-lg-7 col-md-7 col-sm-12 col-12'>
+        <div class='col-lg-7 col-md-7 p-0 col-sm-12 col-12'>
             <!-- contenido de los tabs -->
             <form action='' method='POST' enctype="multipart/form-data" >
                 <div class="tab-content" id="myTabContent">
                     <input type='hidden' id='web-url' value='<?php echo get_site_url(); ?>'>
                     <!-- Vehiculos -->
-                    <div class="tab-pane fade show active p-4" id="vehiculo" role="tabpanel" aria-labelledby="vehiculo-tab">
-                            <div class='row justify-content-center'>
-                                <div class='col-12 col-md-12 col-lg-12 text-center align-title'>
-                                    <h3 class='title-border'> Elige tu veh&iacuteculo</h3>
-                                </div>
+                    <div class="tab-pane fade show active max-height-tab" id="vehiculo" role="tabpanel" aria-labelledby="vehiculo-tab">
+                        <h1 class='title-tab padding-tab pt-3 pb-2'>Informaci&oacute;n del veh&iacute;culo </h1>
+                        <div class='separator'></div>
+                        <div class='row justify-content-center m-0 padding-tab pt-5 pb-2'>
+                            <div class='col-12 col-md-12 col-lg-12 text-center align-title'>
+                                <h3 class='title-border'> Elige tu veh&iacuteculo</h3>
                             </div>
-                            <div class='row justify-content-center'>
-                                <div class='col-12 col-md-12 col-lg-12 text-center'>
-                                    <?php include('section-vehiculo.php'); ?>
-                                </div>
+                        </div>
+                        <div class='row justify-content-center m-0 padding-tab'>
+                            <div class='col-12 col-md-12 col-lg-12 text-center'>
+                                <?php include('section-vehiculo.php'); ?>
                             </div>
+                        </div>
+                        
+                        <div class='row justify-content-center m-0 p-5'>
+                            <!-- guardar -->
+                            <?php //if( is_user_logged_in() ){ ?>
+                                <button type='submit' name='submit' class='button-save mt-3 mb-3'>
+                                <i class="fas fa-save"></i>  
+                                Guardar </button>
                             
-                            <div class='row justify-content-center'>
-                                <!-- guardar -->
-                                <?php //if( is_user_logged_in() ){ ?>
-                                    <button type='submit' name='submit' class='button-save mt-3 mb-3'>
-                                    <i class="fas fa-save"></i>  
-                                    Guardar </button>
-                                
-                                <?php //}else{ ?>
-                                        <!-- Button trigger modal -->
-                                        <!--<button type="button" class="button-save mt-3 mb-3" data-toggle="modal" data-target="#exampleModal">-->
-                                        <!--    <i class="fas fa-save"></i>  -->
-                                        <!--    Guardar -->
-                                        <!--</button>-->
-                                <?php //} ?>
-                                
-                            </div>
+                            <?php //}else{ ?>
+                                    <!-- Button trigger modal -->
+                                    <!--<button type="button" class="button-save mt-3 mb-3" data-toggle="modal" data-target="#exampleModal">-->
+                                    <!--    <i class="fas fa-save"></i>  -->
+                                    <!--    Guardar -->
+                                    <!--</button>-->
+                            <?php //} ?>
                             
                         </div>
+                        
+                    </div>
                     
                     <!-- Comprador  -->
-                    <div class="tab-pane fade p-4" id="comprador" role="tabpanel" aria-labelledby="comprador-tab">
+                    <div class="tab-pane fade p-4 max-height-tab" id="comprador" role="tabpanel" aria-labelledby="comprador-tab">
                         <div class='row justify-content-center'>
                             <div class='col-12 col-md-12 col-lg-12 text-center mt-3 mb-3 align-title'>
                                 <div class='row w-100'>
@@ -163,12 +167,11 @@ include('insertar-contrato.php');
                                     <i class="fas fa-save"></i>  
                                     Guardar </button>
                         </div>
-                        
-                        
+   
                     </div>
                     <!-- Vendedor  -->
                     
-                    <div class="tab-pane fade p-4" id="vendedor" role="tabpanel" aria-labelledby="vendedor-tab">
+                    <div class="tab-pane fade p-4 max-height-tab" id="vendedor" role="tabpanel" aria-labelledby="vendedor-tab">
                         <div class='row justify-content-center'>
                             <div class='col-12 col-md-12 col-lg-12 text-center mt-3 mb-3 align-title'>
                                 <h3 class='title-border' id='titulo-vendedor'> Datos del vendedor</h3>
@@ -190,7 +193,7 @@ include('insertar-contrato.php');
                     </div>
                     <!-- Documentos  -->
                     
-                    <div class="tab-pane fade p-4" id="documentos" role="tabpanel" aria-labelledby="documentos-tab">
+                    <div class="tab-pane fade p-4 max-height-tab" id="documentos" role="tabpanel" aria-labelledby="documentos-tab">
                         <div class='row justify-content-center'>
                             <div class='col-12 col-md-12 col-lg-12 text-center mt-3 mb-3 align-title'>
                                 <h3 class='title-border'> Documentaci&oacuten necesaria</h3>
