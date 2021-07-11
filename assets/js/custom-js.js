@@ -43,7 +43,7 @@
     
     precioNotificacion.onchange = function (){
         if(precioNotificacion.checked == true){
-            document.getElementById('precio-notificacion-container').style.display = 'table-row';
+            document.getElementById('precio-notificacion-container').style.display = 'flex';
             sumarITP(50, true);
         }else{
             document.getElementById('precio-notificacion-container').style.display = 'none';
@@ -98,15 +98,15 @@
             document.getElementById('liquidacion-sucesiones-container').style.display = 'none';
             document.getElementById('escritura-herencia-container').style.display = 'none';
             
-            document.getElementById('itp-costes-tabla').style.display = 'table-row';
-            document.getElementById('calculo-itp-total').style.display = 'table-row';
+            document.getElementById('itp-costes-tabla').style.display = 'flex';
+            document.getElementById('calculo-itp-total').style.display = 'flex';
             sumarITP( parseFloat(document.getElementById('itp-costes').textContent) ,true);
         }
     }
     
     cocheAlta.onchange = function(){
         if(cocheAlta.checked == true){
-            document.getElementById('alta-baja').style.display = 'table-row';
+            document.getElementById('alta-baja').style.display = 'flex';
             sumarITP( parseFloat(document.getElementById('alta-baja-tabla').textContent) , true);
         }else{
             document.getElementById('alta-baja').style.display = 'none';
@@ -116,7 +116,7 @@
     
     cocheFichaTecnica.onchange = function(){
         if(cocheFichaTecnica.checked == true){
-            document.getElementById('ficha-tecnica-itv').style.display = 'table-row';
+            document.getElementById('ficha-tecnica-itv').style.display = 'flex';
             sumarITP(20.40, true);
         }else{
             document.getElementById('ficha-tecnica-itv').style.display = 'none';
@@ -144,7 +144,7 @@
             document.getElementById('coche-informe-label').textContent = 'Sí';
             document.getElementById('exampleModalLabelValidacion').textContent = 'Tenga en cuenta que el precio de venta no puede ser inferior al valor real del vehículo mostrado en la tabla de costes.';
             document.getElementById('informe-dgt-container').style.display = 'none';
-            document.getElementById('informe-trafico').style.display = 'table-row';
+            document.getElementById('informe-trafico').style.display = 'flex';
             document.getElementById('cif-empresa-vendedora').style.display = 'none';
           
             sumarITP(8.59 , true);
@@ -170,9 +170,9 @@
         if(labelCocheFactura == 'Si'){
             document.getElementById('coche-factura-label').textContent = 'No';
             document.getElementById('gestion-container').style.display = 'block';
-            document.getElementById('calculo-itp').style.display = 'block';
+            // document.getElementById('calculo-itp').style.display = 'block';
             document.getElementById('factura-venta').style.display = 'none';
-            document.getElementById('itp-costes-tabla').style.display = 'table-row';
+            document.getElementById('itp-costes-tabla').style.display = 'flex';
             document.getElementById('cif-empresa-vendedora').style.display = 'none';
             document.getElementById('title-nifv-frontal').childNodes[0].textContent = 'NIF del vendedor (frontal)';
             document.getElementById('title-nifv-trasero').childNodes[0].textContent = 'NIF del vendedor (trasero)';
@@ -334,7 +334,7 @@
             let cvf     = document.getElementById('fiscal-tabla').textContent;
             
          
-            document.getElementById('calculo-itp').style.display = 'block';
+            // document.getElementById('calculo-itp').style.display = 'block';
             // insertar informacion del porcentaje de ITP en tabla
             const data = await calculoITP(provincia.value, cvf).then(data => data)
             
@@ -344,11 +344,11 @@
                 document.getElementById('porcentaje-itp').textContent = 'ITP ( '+data+' % )';    
             }
             
-            document.getElementById('tasa-transferencia').style.display = 'table-row';
-            document.getElementById('informe-trafico').style.display = 'table-row';
-            document.getElementById('tramitacion').style.display = 'table-row';
-            document.getElementById('alta-baja').style.display = 'table-row';
-            document.getElementById('ficha-tecnica-itv').style.display = 'table-row';
+            document.getElementById('tasa-transferencia').style.display = 'flex';
+            document.getElementById('informe-trafico').style.display = 'flex';
+            document.getElementById('tramitacion').style.display = 'flex';
+            document.getElementById('alta-baja').style.display = 'flex';
+            document.getElementById('ficha-tecnica-itv').style.display = 'flex';
             
             ITPTotal = parseFloat(document.getElementById('ficha-tecnica-tabla').textContent)+parseFloat(document.getElementById('alta-baja-tabla').textContent)+parseFloat(document.getElementById('tasa-transferencia-tabla').textContent)+parseFloat(document.getElementById('informe-trafico-tabla').textContent)+parseFloat(document.getElementById('tramitacion-tabla').textContent);
             document.getElementById('total-tabla').textContent = ITPTotal.toFixed(2)+' €';
@@ -524,15 +524,15 @@
             document.getElementById('liquidacion-sucesiones-container').style.display = 'none'; 
             document.getElementById('escritura-herencia-container').style.display = 'flex';
 
-            document.getElementById('itp-costes-tabla').style.display = 'table-row';
-            document.getElementById('calculo-itp-total').style.display = 'table-row';
+            document.getElementById('itp-costes-tabla').style.display = 'flex';
+            document.getElementById('calculo-itp-total').style.display = 'flex';
             sumarITP( parseFloat(document.getElementById('itp-costes').textContent) ,true);
         }
     }
     
     motoAlta.onchange = function(){
         if(motoAlta.checked == true){
-            document.getElementById('alta-baja').style.display = 'table-row';
+            document.getElementById('alta-baja').style.display = 'flex';
             sumarITP( parseFloat(document.getElementById('alta-baja-tabla').textContent) , true);
         }else{
             document.getElementById('alta-baja').style.display = 'none';
@@ -542,7 +542,7 @@
     
     motoFichaTecnica.onchange = function(){
         if(motoFichaTecnica.checked == true){
-            document.getElementById('ficha-tecnica-itv').style.display = 'table-row';
+            document.getElementById('ficha-tecnica-itv').style.display = 'flex';
             sumarITP(20.40 , true);
         }else{
             document.getElementById('ficha-tecnica-itv').style.display = 'none';
@@ -569,9 +569,9 @@
         if(labelMotoFactura == 'Si'){
             document.getElementById('moto-factura-label').textContent = 'No';
             document.getElementById('moto-gestion-container').style.display = 'block';
-            document.getElementById('calculo-itp').style.display = 'block';
+            // document.getElementById('calculo-itp').style.display = 'block';
             document.getElementById('factura-venta').style.display = 'none';
-            document.getElementById('itp-costes-tabla').style.display = 'table-row';
+            document.getElementById('itp-costes-tabla').style.display = 'flex';
             document.getElementById('exampleModalLabelValidacion').textContent = 'Tenga en cuenta que el precio de venta no puede ser inferior al valor real del vehículo mostrado en la tabla de costes.';
         }else {
             document.getElementById('moto-factura-label').textContent = 'Si';
@@ -634,7 +634,7 @@
             //console.log('calculoITP '+data);
 
         if(provinciaMoto.value != '' && facturaValidacion == false ){
-            document.getElementById('calculo-itp').style.display = 'block';
+            // document.getElementById('calculo-itp').style.display = 'block';
             // insertar informacion del porcentaje de ITP en tabla
             if( parseInt(data) >= 10 ){
                 document.getElementById('porcentaje-itp').textContent = 'ITP Precio Fijo ( '+data+' )';
@@ -642,11 +642,11 @@
                 document.getElementById('porcentaje-itp').textContent = 'ITP ( '+data+' % )';    
             }
             
-            document.getElementById('tasa-transferencia').style.display = 'table-row';
-            document.getElementById('informe-trafico').style.display = 'table-row';
-            document.getElementById('tramitacion').style.display = 'table-row';
-            document.getElementById('alta-baja').style.display = 'table-row';
-            document.getElementById('ficha-tecnica-itv').style.display = 'table-row';
+            document.getElementById('tasa-transferencia').style.display = 'flex';
+            document.getElementById('informe-trafico').style.display = 'flex';
+            document.getElementById('tramitacion').style.display = 'flex';
+            document.getElementById('alta-baja').style.display = 'flex';
+            document.getElementById('ficha-tecnica-itv').style.display = 'flex';
             
             ITPTotal = parseFloat(document.getElementById('ficha-tecnica-tabla').textContent)+parseFloat(document.getElementById('alta-baja-tabla').textContent)+parseFloat(document.getElementById('tasa-transferencia-tabla').textContent)+parseFloat(document.getElementById('informe-trafico-tabla').textContent)+parseFloat(document.getElementById('tramitacion-tabla').textContent);
             document.getElementById('total-tabla').textContent = ITPTotal.toFixed(2)+' €';
@@ -675,7 +675,7 @@
                 
                 if( ele[i].value == 'true' ){
                              
-                    document.getElementById('calculo-itp').style.display = 'block';
+                    // document.getElementById('calculo-itp').style.display = 'block';
                     document.getElementById('exampleModalLabelValidacion').textContent = 'Tenga en cuenta que el precio de venta no puede ser inferior al valor real del vehículo mostrado en la tabla de costes.';
                     document.getElementById('contrato-compra-venta').style.display = 'none';
                     document.getElementById('impuesto-hacienda-container').style.display = 'none';
@@ -689,7 +689,7 @@
                     document.getElementById('modalPrecioValidate').style.display = 'block';
                     document.getElementById('contrato-compra-venta').style.display = 'flex';
                     document.getElementById('impuesto-hacienda-container').style.display = 'flex';
-                    document.getElementById('itp-costes-tabla').style.display = 'table-row';
+                    document.getElementById('itp-costes-tabla').style.display = 'flex';
                 }
                 
             }
@@ -704,7 +704,7 @@
             document.getElementById('coche-informe-label').textContent = 'Sí';
             document.getElementById('exampleModalLabelValidacion').textContent = 'Tenga en cuenta que el precio de venta no puede ser inferior al valor real del vehículo mostrado en la tabla de costes.';
             document.getElementById('informe-dgt-container').style.display = 'none';
-            document.getElementById('informe-trafico').style.display = 'table-row';
+            document.getElementById('informe-trafico').style.display = 'flex';
             sumarITP(8.59 , true);
         }else {
             document.getElementById('coche-informe-label').textContent = 'No';
@@ -1001,7 +1001,7 @@
             if(ele[i].checked){
                 
                 if( ele[i].value == 'true' ){
-                    document.getElementById('calculo-itp').style.display = 'block';
+                    // document.getElementById('calculo-itp').style.display = 'block';
                     document.getElementById('exampleModalLabelValidacion').textContent = 'Tenga en cuenta que el precio de venta no puede ser inferior al valor real del vehículo mostrado en la tabla de costes.';
                     document.getElementById('contrato-compra-venta').style.display = 'none';
                     document.getElementById('impuesto-hacienda-container').style.display = 'none';
@@ -1020,10 +1020,10 @@
                     document.getElementById('modalPrecioValidate').style.display = 'block';
                     document.getElementById('contrato-compra-venta').style.display = 'flex';
                     document.getElementById('impuesto-hacienda-container').style.display = 'flex';
-                    document.getElementById('itp-costes-tabla').style.display = 'table-row';
+                    document.getElementById('itp-costes-tabla').style.display = 'flex';
                     
                     // solo gestion en la DGT 15 euros
-                    document.getElementById('solo-gestion-dgt-container').style.display = 'table-row';
+                    document.getElementById('solo-gestion-dgt-container').style.display = 'flex';
 
                     sumarITP(ITPTotal, false);
                     sumarITP(15, true);
