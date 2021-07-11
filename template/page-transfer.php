@@ -23,200 +23,198 @@ include('insertar-contrato.php');
 <title>Transferir Coches</title>
 <div class='container'>
     <div class='row'>
-        <div class='col-lg-5 col-md-5 col-sm-12 col-12 bg-blue p-4'>
-            
-            <div class='row'>
-                <div class='col-12 col-lg-12 col-md-12 text-light'>
-                    <a class='text-light' href="<?php echo get_site_url(); ?>">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+        <div class='col-lg-4 col-md-4 col-sm-12 col-12 bg-blue p-4' >
+           <div class="contenido-left">
+
+                <div class='row padLeftRight' >
+                    <div class='col-12 col-lg-12 col-md-12 text-light boton-salir'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
                             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                         </svg>
                         SALIR
-                    </a>
-                </div>
-            </div>
-            <img class='image-space mt-4' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/tramites.png'; ?>" alt="">
-            <p class='text-light font-weight-bold mt-4 paragraph-white' >
-                Olv&iacute;date de papeleos ! En tr&aacute;mites DGT Online gestionamos todos tus tr&aacute;mites de forma f&aacute;cil y sencilla.
-            </p>
-            <div class='wrap-container'>
-                <ul class="nav nav-tabs border-0 mt-5 w-100" id="tabs" role="tablist">
-                    <li class='w-100 tab-menu' role="presentation">
-                        <button class="nav-link w-75 active d-flex align-items-center" id="vehiculo-tab" data-bs-toggle="tab" data-bs-target="#vehiculo" type="button" role="tab" aria-controls="vehiculo" aria-selected="true">
-                            <span class='step-number text-light'> 1 </span>
-                            <img width='24' height='24' class='image-space' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/car-base.png'; ?>" alt="">
-                            <div class='d-flex flex-column text-left step-title-font-size' >
-                                <p class='mb-0 font-weight-bold text-light'>Veh&iacuteculo</p>
-                                <span class='text-light'>Informaci&oacuten sobre su veh&iacuteculo</span>
-                            </div>
-                        </button>
-                    </li>
-                    <li class='w-100' role="presentation">
-                        <button class="nav-link w-75 d-flex d-flex align-items-center" id="comprador-tab" data-bs-toggle="tab" data-bs-target="#comprador" type="button" role="tab" aria-controls="comprador" aria-selected="false">
-                            <span class='step-number text-light'> 2 </span>
-                            <img width='24' height='24' class='image-space' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/user.svg'; ?>" alt="">
-                            <div class='d-flex flex-column text-left step-title-font-size' >
-                                <p class='mb-0 font-weight-bold text-light' id='comprador-title'>Comprador</p>
-                                <span class='text-light' id='title-comprador-section'>Datos personales del comprador</span>
-                            </div>
-                        </button>
-                    </li>
-                    <li class='w-100' role="presentation">
-                        <button class="nav-link w-75 d-flex d-flex align-items-center" id="vendedor-tab" data-bs-toggle="tab" data-bs-target="#vendedor" type="button" role="tab" aria-controls="vendedor" aria-selected="false">
-                            <span class='step-number text-light'> 3 </span>
-                            <img width='24' height='24'  class='image-space' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/user.svg'; ?>" alt="">
-                            <div class='d-flex flex-column text-left step-title-font-size' >
-                                <p class='mb-0 font-weight-bold text-light' id='vendedor-title' >Vendedor</p>
-                                <span class='text-light' id='title-vendedor-section' >Datos personales del vendedor</span>
-                            </div>
-                        
-                        </button>
-                    </li>
-                    <li class='w-100' role="presentation">
-                        <button class="nav-link w-75 d-flex d-flex align-items-center" id="documentos-tab" data-bs-toggle="tab" data-bs-target="#documentos" type="button" role="tab" aria-controls="documentos" aria-selected="false">
-                            <span class='step-number text-light'> 4 </span>
-                            <img width='24' height='24' class='image-space' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/document_v2.svg'; ?>" alt="">
-                            <div class='d-flex flex-column text-left step-title-font-size' >
-                                <p class='mb-0 font-weight-bold text-light'>Documentos</p>
-                                <span class='text-light'>Documentos necesarios</span>
-                            </div>
-                        
-                        </button>
-                    </li>
-                </ul>
-                <div class='w-100 position-total row justify-content-between'>
-                    <div class='col-12 col-md-5 col-lg-5 text-light'>
-                        <p class='m-0'>TOTAL</p>
-                        <p>----</p>
-                    </div>
-                    <div class='col-12 col-md-5 col-lg-5 text-center ver-todo'>
-                        <button type="button" style='text-decoration: underline; background: none; border: 0;' class='w-100 text-light' id="boton-ver-todo" >VER TODO</button>
-                    </div>
-                </div> 
-            </div>
-            <!-- actualizar -->
-            <div class="ver-todo-valores down-section" id="seccion-ver-todo">
-                <div class='row'>
-                    <div class='col-12 closed-boton ' id="closed-boton">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                        Cerrar
                     </div>
                 </div>
-                <div class='row section-calculos'>
-                    <div class='col-12' id="">
-                        <h3>Cálculo ITP</h3>
-
-                        <div class="tabla-calculos">
-                            <div class="row">
-                                <div class="col-4 title border-row">
-                                    <span >Precio de venta</span>
+                <img class='image-space mt-4 padLeftRight' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/tramites.png'; ?>" alt="">
+                <p class='text-light font-weight-bold mt-4 paragraph-white padLeftRight' >
+                    ¡Olv&iacute;date del papeleo! En tr&aacute;mites DGT Online gestionamos todos tus tr&aacute;mites de forma f&aacute;cil y sencilla
+                </p>
+                <div class='wrap-container'>
+                    <ul class="nav nav-tabs border-0 mt-5 w-100 padLeftRight" id="tabs" role="tablist">
+                        <li class='w-100 tab-menu' role="presentation">
+                            <button class="nav-link w-75 active d-flex align-items-center" id="vehiculo-tab" data-bs-toggle="tab" data-bs-target="#vehiculo" type="button" role="tab" aria-controls="vehiculo" aria-selected="true">
+                                <!-- <span class='step-number text-light'> 1 </span> -->
+                                <img width='30' height='34' class='image-space' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/llave-del-coche.png'; ?>" alt="">
+                                <div class='d-flex flex-column text-left step-title-font-size' >
+                                    <p class='mb-0 font-weight-bold '>Veh&iacuteculo</p>
+                                    <span class=''>Informaci&oacuten del veh&iacuteculo</span>
                                 </div>
-                                <div class="col-8 valor border-row">
-                                    <span id='precio-venta'>11111 €</span>
+                            </button>
+                        </li>
+                        <li class='w-100' role="presentation">
+                            <button class="nav-link w-75 d-flex d-flex align-items-center" id="comprador-tab" data-bs-toggle="tab" data-bs-target="#comprador" type="button" role="tab" aria-controls="comprador" aria-selected="false">
+                                <img width='30' height='34' class='image-space' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/usuario.png'; ?>" alt="">
+                                <div class='d-flex flex-column text-left step-title-font-size' >
+                                    <p class='mb-0 font-weight-bold ' id='comprador-title'>Comprador</p>
+                                    <span class='' id='title-comprador-section'>Datos personales del comprador</span>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4 title border-row">
-                                    <span >Factor de corrección</span>
+                            </button>
+                        </li>
+                        <li class='w-100' role="presentation">
+                            <button class="nav-link w-75 d-flex d-flex align-items-center" id="vendedor-tab" data-bs-toggle="tab" data-bs-target="#vendedor" type="button" role="tab" aria-controls="vendedor" aria-selected="false">
+                                <img width='30' height='34'  class='image-space' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/gerente.png'; ?>" alt="">
+                                <div class='d-flex flex-column text-left step-title-font-size' >
+                                    <p class='mb-0 font-weight-bold ' id='vendedor-title' >Vendedor</p>
+                                    <span class='' id='title-vendedor-section' >Datos personales del vendedor</span>
                                 </div>
-                                <div class="col-8 valor border-row ">
-                                    <span id='factor-correccion'>100,00 %</span>
+                            
+                            </button>
+                        </li>
+                        <li class='w-100' role="presentation">
+                            <button class="nav-link w-75 d-flex d-flex align-items-center" id="documentos-tab" data-bs-toggle="tab" data-bs-target="#documentos" type="button" role="tab" aria-controls="documentos" aria-selected="false">
+                                <img width='30' height='34' class='image-space' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/subir.png'; ?>" alt="">
+                                <div class='d-flex flex-column text-left step-title-font-size' >
+                                    <p class='mb-0 font-weight-bold '>Documentos</p>
+                                    <span class=''>Documentos necesarios</span>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4 title">
-                                    <span >Valor según precio de venta</span>
-                                </div>
-                                <div class="col-8 valor">
-                                    <span id='valoracion-precio-venta'>111111111 €</span>
-                                </div>
-                            </div>
-                            <div class="row resultados">
-                                <div class="col-4 title">
-                                    <span>ITP(8,00 %)</span>
-                                </div>
-                                <div class="col-8 valor">
-                                    <span id='itp-total'>11111,111111</span>
-                                </div>
-                            </div>
+                            
+                            </button>
+                        </li>
+                    </ul>
+                    <div class='w-100 position-total row justify-content-between padLeftRight'>
+                        <div class='col-12 col-md-6 col-lg-6 text-light'>
+                            <p class='m-0'>TOTAL</p>
+                            <p>----</p>
                         </div>
-
-                    </div>
-                </div>
-
-
-                <div class='row section-calculos costes'>
-                    <div class='col-12' id="">
-                        <h3>Costes</h3>
-
-                        <div class="tabla-calculos">
-                            <div class="row">
-                                <div class="col-4 title border-row">
-                                    <span >ITP</span>
-                                </div>
-                                <div class="col-8 valor border-row">
-                                    <span id='itp-costes' >11111 €</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4 title border-row">
-                                    <span>Tasas infome de transderencia de vehículo</span>
-                                </div>
-                                <div class="col-8 valor border-row ">
-                                    <span id='tasa-transferencia-tabla'>11111 €</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4 title">
-                                    <span>Tasas informe de tráfico</span>
-                                </div>
-                                <div class="col-8 valor">
-                                    <span id='informe-trafico-tabla'>111111111 €</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4 title">
-                                    <span  id='alta-baja-tabla'>Tasas alta de baja temporal</span>
-                                </div>
-                                <div class="col-8 valor">
-                                    <span >111111111 €</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4 title">
-                                    <span>Tasas cambios ficha técnica en ITV</span>
-                                </div>
-                                <div class="col-8 valor">
-                                    <span id='ficha-tecnica-tabla' >111111111 €</span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4 title">
-                                    <span>Tramiración(Horarios, derechos colegiales, mensajería)</span>
-                                </div>
-                                <div class="col-8 valor">
-                                    <span id='tramitacion-tabla'>111111111 €</span>
-                                </div>
-                            </div>
-                            <div class="row resultados">
-                                <div class="col-4 title">
-                                    <span>Toral (IVA incluido)</span>
-                                </div>
-                                <div class="col-8 valor">
-                                    <span id='total-tabla'>11111,111111</span>
-                                </div>
-                            </div>
+                        <div class='col-12 col-md-6 col-lg-6 text-center ver-todo'>
+                            <button type="button" style='text-decoration: underline; background: none; border: 0;' class='w-100 text-light' id="boton-ver-todo" >VER TODO</button>
                         </div>
+                    </div> 
+                </div>
+                <!-- actualizar -->
+            
+                <div class="ver-todo-valores down-section height-remove" id="seccion-ver-todo">
+                    <div class='row'>
+                        <div class='col-12 closed-boton ' id="closed-boton">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                            Cerrar
+                        </div>
+                    </div>
+                    <div class='row section-calculos'>
+                        <div class='col-12' id="">
+                            <h3>Cálculo ITP</h3>
 
+                            <div class="tabla-calculos">
+                                <div class="row">
+                                    <div class="col-4 title border-row">
+                                        <span >Precio de venta</span>
+                                    </div>
+                                    <div class="col-8 valor border-row">
+                                        <span id='precio-venta'>11111 €</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 title border-row">
+                                        <span >Factor de corrección</span>
+                                    </div>
+                                    <div class="col-8 valor border-row ">
+                                        <span id='factor-correccion'>100,00 %</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 title">
+                                        <span >Valor según precio de venta</span>
+                                    </div>
+                                    <div class="col-8 valor">
+                                        <span id='valoracion-precio-venta'>111111111 €</span>
+                                    </div>
+                                </div>
+                                <div class="row resultados">
+                                    <div class="col-4 title">
+                                        <span>ITP(8,00 %)</span>
+                                    </div>
+                                    <div class="col-8 valor">
+                                        <span id='itp-total'>11111,111111</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class='row section-calculos costes'>
+                        <div class='col-12' id="">
+                            <h3>Costes</h3>
+
+                            <div class="tabla-calculos">
+                                <div class="row">
+                                    <div class="col-4 title border-row">
+                                        <span >ITP</span>
+                                    </div>
+                                    <div class="col-8 valor border-row">
+                                        <span id='itp-costes' >11111 €</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 title border-row">
+                                        <span>Tasas infome de transderencia de vehículo</span>
+                                    </div>
+                                    <div class="col-8 valor border-row ">
+                                        <span id='tasa-transferencia-tabla'>11111 €</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 title">
+                                        <span>Tasas informe de tráfico</span>
+                                    </div>
+                                    <div class="col-8 valor">
+                                        <span id='informe-trafico-tabla'>111111111 €</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 title">
+                                        <span  id='alta-baja-tabla'>Tasas alta de baja temporal</span>
+                                    </div>
+                                    <div class="col-8 valor">
+                                        <span >111111111 €</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 title">
+                                        <span>Tasas cambios ficha técnica en ITV</span>
+                                    </div>
+                                    <div class="col-8 valor">
+                                        <span id='ficha-tecnica-tabla' >111111111 €</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 title">
+                                        <span>Tramiración(Horarios, derechos colegiales, mensajería)</span>
+                                    </div>
+                                    <div class="col-8 valor">
+                                        <span id='tramitacion-tabla'>111111111 €</span>
+                                    </div>
+                                </div>
+                                <div class="row resultados">
+                                    <div class="col-4 title">
+                                        <span>Toral (IVA incluido)</span>
+                                    </div>
+                                    <div class="col-8 valor">
+                                        <span id='total-tabla'>11111,111111</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div>   
             <!-- -->   
         </div>
 
-        <div class='col-lg-7 col-md-7 p-0 col-sm-12 col-12'>
+        <div class='col-lg-8 col-md-8 p-0 col-sm-12 col-12 contenido'>
             <!-- contenido de los tabs -->
             <form action='' method='POST' enctype="multipart/form-data" >
                 <div class="tab-content" id="myTabContent">
@@ -341,116 +339,6 @@ include('insertar-contrato.php');
                 </div>
                 <input type='hidden' id='total-value' name='total-value'>
             </form> 
-            
-
-            <!-- calculo de ITP   -->
-            <div class='col-lg-3 col-sm-12 col-12 mt-3 sticky-card'>
-                <div class="card" style="border-radius: 10px">
-                    <div class="card-body">
-                        
-                        <table id='calculo-itp' class="table" style='display: none;'>
-                            <thead class='w-100'>
-                                <tr>
-                                    <th class='table-itp text-center' colspan='2'>C&aacutelculo ITP</th>
-                                </tr>
-                                
-                            </thead>    
-                            <tbody class='w-100'>
-                                
-                                <tr>
-                                    <th scope="row" class='font-size-table font-weight-normal' >PRECIO DE VENTA</th>
-                                    <td id='precio-venta' class='font-size-table'>0</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class='font-size-table font-weight-normal'>VALORACI&OacuteN SEG&UacuteN PRECIO DE VENTA</th>
-                                    <td id='valoracion-precio-venta' class='font-size-table'>0</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class='font-size-table font-weight-normal' >FACTOR DE CORRECCI&OacuteN</th>
-                                    <td id='factor-correccion' class='font-size-table'>0</td>
-                                </tr>
-                                <tr>
-                                    <th scope='row' class='font-size-table font-weight-normal' > Valoraci&oacuten real</th>
-                                    <td id='valoracion-real' class='font-size-table'>0</td>
-                                </tr>
-                                <tr id='calculo-itp-total' class='descuento-itp'>
-                                    <th scope="row" id='porcentaje-itp' class='font-size-table font-weight-normal font-weight-bold'> ITP (%) </th>
-                                    <td id='itp-total' class='font-size-table'>0</td>
-                                </tr>
-                                
-                
-                            </tbody>
-                            
-                        </table>
-                        
-                        
-                        
-                        <table id='costes-itp' class="table">
-                                <thead class='w-100'>
-                                <tr>
-                                    <th class='table-itp text-center' colspan="2">Costes</th>
-                                </tr>
-                                </thead>
-                            
-                                <tbody class='w-100'>
-                                <tr id='itp-costes-tabla'>
-                                    <th scope="row" class='font-size-table font-weight-normal' >ITP</th>
-                                    <td id='itp-costes' class='font-size-table'> 0 </td>
-                                </tr>
-                                
-                                <tr class='w-100' id='solo-gestion-dgt-container' style='display:none;'>
-                                    <th scope='row' class='font-size-table font-weight-normal'> Informe gesti&oacuten DGT</th>
-                                    <td id='solo-gestio-dgt' class='font-size-table'> 15 € </td>
-                                </tr>
-                                
-                                    <tr class='w-100' id='precio-notificacion-container' style='display:none;'>
-                                    <th scope='row' class='font-size-table font-weight-normal'> Precio de notificaci&oacuten de venta</th>
-                                    <td id='precio-notificacion-costes' class='font-size-table'> 50 € </td>
-                                </tr>
-                                
-                                <tr id='tasa-transferencia' style='display:none;'>
-                                    <th scope="row" class='font-size-table font-weight-normal' >Tasas de transferencia de veh&iacuteculo </th>
-                                    <td id='tasa-transferencia-tabla' class='font-size-table'> 55.15 € </td>
-                                </tr>
-                                
-                                <tr id='informe-trafico' style='display:none;'>
-                                    <th scope="row" class='font-size-table font-weight-normal' > Tasas Informe de tr&aacutefico </th>
-                                    <td id='informe-trafico-tabla' class='font-size-table'> 8.59 € </td>
-                                </tr>
-                                    
-                                <tr id='alta-baja' style='display:none;'>
-                                    <th scope="row" class='font-size-table font-weight-normal' >Tasas alta de baja temporal </th>
-                                    <td id='alta-baja-tabla' class='font-size-table'> 30 € </td>
-                                </tr>
-                                
-                                <tr id='ficha-tecnica-itv' style='display:none;'>
-                                    <th scope="row" class='font-size-table font-weight-normal' > Tasas cambios ficha t&eacutecnica en ITV </th>
-                                    <td id='ficha-tecnica-tabla' class='font-size-table'> 20.40  € </td>
-                                </tr>
-                        
-                                <tr id='tramitacion' style='display:none;'>
-                                    <th scope="row" class='font-size-table font-weight-normal' >Tramitaci&oacuten (honorarios, derechos colegiales, mensajer&iacutea...)</th>
-                                    <td id='tramitacion-tabla' class='font-size-table'> 115.10 €</td>
-                                </tr>
-                                
-                                <tr>
-                                    <th scope="row" class='font-size-table'>TOTAL (IVA INCLUIDO)</th>
-                                    <td id='total-tabla' class='font-size-table' >0</td>
-                                </tr>
-                    
-                                </tbody>
-                            
-                        </table>
-                        <p>
-                            Completa los datos de tu veh&iacuteculo para 
-                            saber cu&aacutento costar&aacute la transferencia: 
-                            
-                        </p>
-                        
-                    </div>
-                </div>
-            </div>
-            
             
             <!-- modal validaciones informativas -->
             
