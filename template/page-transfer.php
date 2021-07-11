@@ -82,7 +82,7 @@ include('insertar-contrato.php');
                     <div class='w-100 position-total row justify-content-between padLeftRight' id="position-total">
                         <div class='col-12 col-md-6 col-lg-6 text-light'>
                             <p class='m-0'>TOTAL</p>
-                            <p>----</p>
+                            <p id='total-total'>0</p>
                         </div>
                         <div class='col-12 col-md-6 col-lg-6 text-center ver-todo'>
                             <button type="button" style='text-decoration: underline; background: none; border: 0;' class='w-100 text-light' id="boton-ver-todo" >VER TODO</button>

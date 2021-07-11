@@ -18,6 +18,8 @@
     const sideURL           = document.getElementById('web-url').value;
     let verTodo             = document.getElementById('boton-ver-todo'); 
     let ocultarrTodo        = document.getElementById('closed-boton'); 
+    let provinciaMoto       = document.getElementById('moto-provincia');
+
 
     const ITPorcentaje = {
         'valencia': 8,
@@ -232,8 +234,7 @@
                 let cvf = document.getElementById('fiscal-tabla').textContent;
                 
                 const itp = await calculoITP(provincia.value, parseInt(cvf)).then(data => data)
-                
-                console.log(itp);
+            
                 if(parseFloat(itp) > 10){
                     
                     document.getElementById('itp-total').textContent = (parseFloat(itp));
@@ -258,7 +259,8 @@
         matriculacion                   = document.getElementById('coche-date');
         matriculacion                   = matriculacion.value.split('-');
         let url = sideURL+'/wp-json/gp/v1/car_model/?marca='+marca.value+'&combustible='+combustible.value+'&matriculacion='+matriculacion[0];
-
+        document.getElementById('modelo-container').style.display = 'none';
+        document.getElementById('coche-spinner-modelo').display = 'block';
         fetch(url,{method: 'GET'})
             .then(function(response) {
                 return response.json();
@@ -284,6 +286,9 @@
                     
                         modelo3.appendChild(option);
                 });
+
+                document.getElementById('modelo-container').style.display = 'block';
+                document.getElementById('coche-spinner-modelo').display = 'none';
             }); 
 
 
@@ -352,7 +357,7 @@
             
             ITPTotal = parseFloat(document.getElementById('ficha-tecnica-tabla').textContent)+parseFloat(document.getElementById('alta-baja-tabla').textContent)+parseFloat(document.getElementById('tasa-transferencia-tabla').textContent)+parseFloat(document.getElementById('informe-trafico-tabla').textContent)+parseFloat(document.getElementById('tramitacion-tabla').textContent);
             document.getElementById('total-tabla').textContent = ITPTotal.toFixed(2)+' €';
-            
+            document.getElementById('total-total').textContent = ITPTotal.toFixed(2)+' €';
             // calculo del ITP base segun las tablas de la DGT luego 
             // se actualiza en base al precio del vehiculo
             
@@ -380,7 +385,8 @@
     }
     
     function combustibleDislplay(){
-        combustibleContainer.style.display = 'block';
+        combustibleContainer.style.display = 'none';
+        document.getElementById('coche-spinner-combustible').display = 'block';
 
         let url = sideURL+'/wp-json/gp/v1/combustible/?marca='+marca.value;
         fetch(url,{method: 'GET'})
@@ -388,7 +394,8 @@
                 return response.json();
             })
             .then(function(myJson) {
-               
+                
+
                 var length = combustible.options.length;
                 for (i = length-1; i >= 0; i--) {
                     combustible.options[i] = null;
@@ -408,6 +415,9 @@
                     
                         combustible.appendChild(option);
                 });
+                
+                combustibleContainer.style.display = 'block';
+                document.getElementById('coche-spinner-combustible').display = 'none';
             });  
     }
     
@@ -616,32 +626,75 @@
             motoDisplay();
             document.getElementById('factor-correccion').textContent = data+',00 % ';
         }
+
+        if(data != undefined ){
+            document.getElementById('factor-correccion').textContent = data+',00 % ';
+            let precioTabla = parseFloat(document.getElementById('valoracion-precio-venta').textContent);
+            
+            if(precioTabla > 0 ){
+                let valorReal = document.getElementById('valoracion-real');
+                valorReal.textContent = (precioTabla*(parseFloat(data)/100)).toFixed(2);
+                //asignar el valor minimo acorde al porcentaje de correccion
+                motoPrecio.min = (parseInt(precioTabla)*(parseFloat(data)/100));
+                
+                nuevaProvinciaMoto = document.getElementById('moto-provincia').value;
+        
+                if(nuevaProvinciaMoto != undefined && nuevaProvinciaMoto != '' ){
+
+                    const data2 = await calculoITP(nuevaProvinciaMoto).then(data2 => data2)
+                    let ITPBase =  parseFloat(document.getElementById('valoracion-precio-venta').textContent);
+                    
+                    if(parseInt(data2) >= 10 ){
+                        document.getElementById('itp-costes').textContent =  (parseFloat(data2) ).toString()+' €';
+                        document.getElementById('itp-total').textContent  = (parseFloat(data2) ).toString()+' €';   
+                    }else{
+                        let factorCorreccion = document.getElementById('factor-correccion').textContent;
+                        let valorReal = document.getElementById('valoracion-real');
+            
+                        valorReal.textContent = (parseFloat(ITPBase)*(parseFloat(factorCorreccion)/100)).toFixed(2);
+                        
+                        //asignar el valor minimo acorde al porcentaje de correccion
+                        motoPrecio.min = (parseInt(ITPBase)*(parseFloat(factorCorreccion)/100));
+
+                        document.getElementById('itp-costes').textContent =  (parseFloat(valorReal.textContent)*(parseFloat(data2)/100)).toFixed(0).toString()+' €';
+                        document.getElementById('itp-total').textContent  = (parseFloat(valorReal.textContent)*(parseFloat(data2)/100)).toFixed(0).toString()+' €';   
+                    }
+
+                }
+            }
+        }else{
+           document.getElementById('factor-correccion').textContent = '-'; 
+        }
+
     }
     
     function motoDisplay(){
         document.getElementById('moto-adicional').style.display = 'block';
     }
     
-    let provinciaMoto = document.getElementById('moto-provincia');
-    
+
     provinciaMoto.onchange = async function(){
 
         let facturaValidacion = document.getElementById('factura-moto').checked;
         let ITPTotal = 0;
         document.getElementById('datos-adicionales-moto').style.display = 'block';
 
-        const data = await calculoITP(provinciaMoto.value).then(data => data)
+       
             //console.log('calculoITP '+data);
-
-        if(provinciaMoto.value != '' && facturaValidacion == false ){
+        provinciaMoto2       = document.getElementById('moto-provincia');
+        if(provinciaMoto2.value != undefined && provinciaMoto2.value != '' && facturaValidacion == false ){
             // document.getElementById('calculo-itp').style.display = 'block';
             // insertar informacion del porcentaje de ITP en tabla
+
+            const data = await calculoITP(provinciaMoto2.value).then(data => data)
+  
             if( parseInt(data) >= 10 ){
                 document.getElementById('porcentaje-itp').textContent = 'ITP Precio Fijo ( '+data+' )';
             }else{
                 document.getElementById('porcentaje-itp').textContent = 'ITP ( '+data+' % )';    
+               
             }
-            
+
             document.getElementById('tasa-transferencia').style.display = 'flex';
             document.getElementById('informe-trafico').style.display = 'flex';
             document.getElementById('tramitacion').style.display = 'flex';
@@ -650,6 +703,30 @@
             
             ITPTotal = parseFloat(document.getElementById('ficha-tecnica-tabla').textContent)+parseFloat(document.getElementById('alta-baja-tabla').textContent)+parseFloat(document.getElementById('tasa-transferencia-tabla').textContent)+parseFloat(document.getElementById('informe-trafico-tabla').textContent)+parseFloat(document.getElementById('tramitacion-tabla').textContent);
             document.getElementById('total-tabla').textContent = ITPTotal.toFixed(2)+' €';
+            document.getElementById('total-total').textContent = ITPTotal.toFixed(2)+' €';
+            // calculo del ITP base segun las tablas de la DGT luego 
+            // se actualiza en base al precio de la moto
+            
+            let ITPBase =  parseFloat(document.getElementById('valoracion-precio-venta').textContent);
+            if(parseFloat(data) >= 10 ){
+                document.getElementById('itp-costes').textContent =  (parseFloat(data) ).toString()+' €';
+                document.getElementById('itp-total').textContent  = (parseFloat(data) ).toString()+' €';   
+            }else{
+                let factorCorreccion = document.getElementById('factor-correccion').textContent;
+                let valorReal = document.getElementById('valoracion-real');
+    
+                valorReal.textContent = (parseFloat(ITPBase)*(parseFloat(factorCorreccion)/100)).toFixed(2);
+                
+                //asignar el valor minimo acorde al porcentaje de correccion
+                motoPrecio.min = (parseInt(ITPBase)*(parseFloat(factorCorreccion)/100));
+                
+                document.getElementById('itp-costes').textContent =  (parseFloat(valorReal.textContent)*(parseFloat(data)/100)).toFixed(0).toString()+' €';
+                document.getElementById('itp-total').textContent  = (parseFloat(valorReal.textContent)*(parseFloat(data)/100)).toFixed(0).toString()+' €';   
+            }
+            
+            sumarITP( parseFloat(document.getElementById('itp-costes').textContent) ,true);
+            
+            
         }
         
     }
@@ -1040,12 +1117,14 @@
         if(signo == true){
             ITPTotal += valor;
             document.getElementById('total-tabla').textContent = ITPTotal.toFixed(2)+' €';
+            document.getElementById('total-total').textContent = ITPTotal.toFixed(2)+' €';
              document.getElementById('total-value').value = ITPTotal.toFixed(2);
         }else{
             if(ITPTotal > 0){
                 ITPTotal -= valor;
 
                 document.getElementById('total-tabla').textContent = ITPTotal.toFixed(2)+' €';
+                document.getElementById('total-total').textContent = ITPTotal.toFixed(2)+' €';
                 document.getElementById('total-value').value = ITPTotal.toFixed(2);
             }
             
