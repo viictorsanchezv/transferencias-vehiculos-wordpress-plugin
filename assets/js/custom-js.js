@@ -259,7 +259,8 @@
         matriculacion                   = document.getElementById('coche-date');
         matriculacion                   = matriculacion.value.split('-');
         let url = sideURL+'/wp-json/gp/v1/car_model/?marca='+marca.value+'&combustible='+combustible.value+'&matriculacion='+matriculacion[0];
-
+        document.getElementById('modelo-container').style.display = 'none';
+        document.getElementById('coche-spinner-modelo').display = 'block';
         fetch(url,{method: 'GET'})
             .then(function(response) {
                 return response.json();
@@ -285,6 +286,9 @@
                     
                         modelo3.appendChild(option);
                 });
+
+                document.getElementById('modelo-container').style.display = 'block';
+                document.getElementById('coche-spinner-modelo').display = 'none';
             }); 
 
 
@@ -381,7 +385,8 @@
     }
     
     function combustibleDislplay(){
-        combustibleContainer.style.display = 'block';
+        combustibleContainer.style.display = 'none';
+        document.getElementById('coche-spinner-combustible').display = 'block';
 
         let url = sideURL+'/wp-json/gp/v1/combustible/?marca='+marca.value;
         fetch(url,{method: 'GET'})
@@ -389,7 +394,8 @@
                 return response.json();
             })
             .then(function(myJson) {
-               
+                
+
                 var length = combustible.options.length;
                 for (i = length-1; i >= 0; i--) {
                     combustible.options[i] = null;
@@ -409,6 +415,9 @@
                     
                         combustible.appendChild(option);
                 });
+                
+                combustibleContainer.style.display = 'block';
+                document.getElementById('coche-spinner-combustible').display = 'none';
             });  
     }
     
@@ -618,7 +627,6 @@
             document.getElementById('factor-correccion').textContent = data+',00 % ';
         }
 
-        console.log('data: '+data);
         if(data != undefined ){
             document.getElementById('factor-correccion').textContent = data+',00 % ';
             let precioTabla = parseFloat(document.getElementById('valoracion-precio-venta').textContent);
@@ -630,13 +638,12 @@
                 motoPrecio.min = (parseInt(precioTabla)*(parseFloat(data)/100));
                 
                 nuevaProvinciaMoto = document.getElementById('moto-provincia').value;
-                console.log('provincia moto: '+nuevaProvinciaMoto);
-
+        
                 if(nuevaProvinciaMoto != undefined && nuevaProvinciaMoto != '' ){
 
                     const data2 = await calculoITP(nuevaProvinciaMoto).then(data2 => data2)
                     let ITPBase =  parseFloat(document.getElementById('valoracion-precio-venta').textContent);
-                    console.log('porcentaje ITP: '+data2);
+                    
                     if(parseInt(data2) >= 10 ){
                         document.getElementById('itp-costes').textContent =  (parseFloat(data2) ).toString()+' €';
                         document.getElementById('itp-total').textContent  = (parseFloat(data2) ).toString()+' €';   
@@ -648,8 +655,7 @@
                         
                         //asignar el valor minimo acorde al porcentaje de correccion
                         motoPrecio.min = (parseInt(ITPBase)*(parseFloat(factorCorreccion)/100));
-                        
-                        
+
                         document.getElementById('itp-costes').textContent =  (parseFloat(valorReal.textContent)*(parseFloat(data2)/100)).toFixed(0).toString()+' €';
                         document.getElementById('itp-total').textContent  = (parseFloat(valorReal.textContent)*(parseFloat(data2)/100)).toFixed(0).toString()+' €';   
                     }
