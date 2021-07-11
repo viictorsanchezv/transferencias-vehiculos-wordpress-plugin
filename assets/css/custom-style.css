@@ -25,7 +25,7 @@ body{
     padding: 20px 0 0 0 !important;
     top: 0;
     overflow-y: scroll;
-    height: auto;
+    height: 100vh;
 }
 .bg-blue-height{
     height: auto!important;
@@ -66,6 +66,7 @@ body{
     position: relative;
     width: 100%;
 }
+
 #coche-date::-webkit-calendar-picker-indicator {
     background: transparent;
     bottom: 0;
