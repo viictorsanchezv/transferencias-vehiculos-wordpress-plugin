@@ -45,8 +45,6 @@
               </div>
         </div>
         
-       
-
         <!-- datos adicionales -->
         <div id='moto-adicional' style='display:none;'>
            
@@ -85,7 +83,6 @@
 
             <div class='row mt-2'>
                 <div class='col-12 col-md-12 col-lg-12 mt-4 ' id='moto-gestion-container'>
-                  
                     <div class='d-flex'>  
                         <p class='font-weight-bold'>¿Gestión completa?</p>
                         <div class="tooltip question-circle"> <strong> i </strong> </div>
@@ -145,15 +142,15 @@
 
             </div>
 
-            <div class='row'>
-              <div class='col-12 col-md-6 col-lg-6'> 
+            <div class='row justify-content-between'>
+              <div class='col-12 col-md-5 col-lg-5'> 
                 <!-- fecha venta -->
                 <div class="form-group mt-4">
                     <label class='font-weight-bold' for="forventa">Fecha de la venta <span class='text-blue'> * </span>  </label>
                     <input type="date" class="form-control" name='moto-venta' id="moto-venta" aria-describedby="venta">
                 </div>
               </div>
-              <div class='col-12 col-md-6 col-lg-6 mt-4'>
+              <div class='col-12 col-md-5 col-lg-5 mt-4'>
                 <!-- provincial del comprador  -->
                 <div class="form-group">
                     <label class='font-weight-bold' for="formarca">Provincia del comprador <span class='text-blue'> * </span>  </label>
@@ -193,12 +190,12 @@
          
           <!-- datos adicionales del vehiculo -->
          <div id='datos-adicionales-moto' style='display:none;' >
-          <div class='row'>
+          <div class='row justify-content-between'>
             <div class='col-12 col-md-12 col-lg-12 text-center mt-3 align-title'>
               <p class='font-weight-bold title-border'> Datos adicionales del veh&iacuteculo</p>
             </div>
                 <!-- matricula del vehiculo -->
-            <div class='col-12 col-md-6 col-lg-6'>
+            <div class='col-12 col-md-5 col-lg-5'>
               <label class='font-weight-bold' for="basic-matricula">Matr&iacutecula del veh&iacuteculo <span class='text-blue'> * </span>  </label>
               <div class="input-group mb-3 w-100">
                 <input name='moto-matricula' type="text" placeholder='Ejemplo: 3990 WDS' class="form-control" id="basic-url" aria-describedby="basic-matricula">
@@ -214,7 +211,7 @@
             <!--</div>-->
             
             <!-- serial chasis -->
-            <div class='col-12 col-md-6 col-lg-6'>
+            <div class='col-12 col-md-5 col-lg-5'>
               <label class='font-weight-bold' for="basic-chasis"> N&uacutemero del bastidor  </label>
               <div class="input-group mb-3 w-100">
                 <input name='moto-chasis' type="text" placeholder='DS5421ASD8536400A' class="form-control" id="moto-chasis" aria-describedby="basic-chasis">
@@ -238,7 +235,7 @@
             <!--</div>-->
 
             <!-- cambio servicio -->
-            <div class='col-12 col-md-6 col-lg-6'>
+            <div class='col-12 col-md-5 col-lg-5'>
                 <div class='d-flex'>
                     <p class='font-weight-bold mt-4 mb-3'>¿Es un cambio de servicio?  </p>
                     <div class="tooltip question-circle"> <strong> i </strong></div>
@@ -251,7 +248,7 @@
             </div>
             
             <!-- notificacion de venta -->
-            <div class='col-12 col-lg-6 col-md-6'>
+            <div class='col-12 col-lg-5 col-md-5'>
                 <div class='d-flex'>  
                     <p class='font-weight-bold mt-4 mb-3'>Precio de notificaci&oacuten de venta </p>
                     <!--<div class="tooltip question-circle"> <strong> i </strong> </div>-->
@@ -287,14 +284,14 @@
             
           </div>
           
-          <div class='separator'></div>
+          <div class='separator sep2'></div>
           <!-- datos adicionales de la transferencia -->
-          <div class='row'>
+          <div class='row justify-content-between'>
             <div class='col-12 col-md-12 col-lg-12 text-center mt-3 align-title'>
               <p class='title-border'> Datos adicionales de la transferencia</p>
             </div>
             <!-- precio de venta -->
-            <div class='col-12 col-md-6 col-lg-6 mt-4'>
+            <div class='col-12 col-md-5 col-lg-5 mt-4'>
                 <div class='d-flex'>
                     <label class='font-weight-bold' for="basic-precio">Precio de compraventa <span class='text-blue'> * </span>  </label>
                     <div class="tooltip question-circle"> <strong> i </strong></div>
@@ -306,7 +303,7 @@
             </div>
 
             <!-- ficha tecnica -->
-            <div class='col-12 col-md-6 col-lg-6 mt-4'>
+            <div class='col-12 col-md-5 col-lg-5 mt-4'>
                 <div class='d-flex'>
                     <p class='font-weight-bold mb-0'>¿Cambios en la ficha t&eacutecnica de ITV? </p>
                     <div class="tooltip question-circle"> <strong> i </strong></div>
@@ -320,7 +317,7 @@
             </div>
 
             <!-- alta del vehiculo -->
-            <div class='col-12 col-md-6 col-lg-6 mt-4'>
+            <div class='col-12 col-md-5 col-lg-5 mt-4'>
                 <div class='d-flex'>
                     <p class='font-weight-bold mb-0'>Alta del veh&iacuteculo </p>   
                     <div class="tooltip question-circle"> <strong> i </strong></div>
@@ -335,7 +332,7 @@
             </div>
 
             <!-- herencia -->
-            <div class='col-12 col-md-6 col-lg-6 mt-4'>
+            <div class='col-12 col-md-5 col-lg-5 mt-4'>
                 <div class='d-flex'>
                     <p class='font-weight-bold mb-0'>¿Es una herencia? </p>
                     <div class="tooltip question-circle"> <strong> i </strong></div>

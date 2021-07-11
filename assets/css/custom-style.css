@@ -72,7 +72,7 @@ body{
     position: relative;
     width: 100%;
 }
-#coche-date:after, #moto-date:after, #coche-venta:after{
+#coche-date:after, #moto-date:after, #coche-venta:after, #moto-venta:after{
     content: url(../img/calendario.png);
     position: absolute;
     right: 14px;
