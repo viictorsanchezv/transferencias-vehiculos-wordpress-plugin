@@ -103,8 +103,8 @@ include('insertar-contrato.php');
                     <div class='row section-calculos'>
                         <div class='col-12' id="">
                             <h3>Cálculo ITP</h3>
-
-                            <div class="tabla-calculos">
+                        
+                            <div class="w-100 tabla-calculos">
                                 <div class="row">
                                     <div class="col-4 title border-row">
                                         <span >Precio de venta</span>
@@ -137,7 +137,7 @@ include('insertar-contrato.php');
                                         <span >Valoraci&oacuten real</span>
                                     </div>
                                     <div class="col-8 valor border-row ">
-                                        <span iid='valoracion-real'>0</span>
+                                        <span id='valoracion-real'>0</span>
                                     </div>
                                 </div>
                                 
@@ -158,7 +158,7 @@ include('insertar-contrato.php');
                         <div class='col-12' id="">
                             <h3>Costes</h3>
                         </div>
-                        <div class="tabla-calculos">
+                        <div class="w-100 tabla-calculos">
                             <div class="row"  id='itp-costes-tabla'>
                                 <div class="col-4 title border-row">
                                     <span >ITP</span>
