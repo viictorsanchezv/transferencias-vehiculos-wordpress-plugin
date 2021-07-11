@@ -352,7 +352,7 @@
             
             ITPTotal = parseFloat(document.getElementById('ficha-tecnica-tabla').textContent)+parseFloat(document.getElementById('alta-baja-tabla').textContent)+parseFloat(document.getElementById('tasa-transferencia-tabla').textContent)+parseFloat(document.getElementById('informe-trafico-tabla').textContent)+parseFloat(document.getElementById('tramitacion-tabla').textContent);
             document.getElementById('total-tabla').textContent = ITPTotal.toFixed(2)+' €';
-            
+            document.getElementById('total-total').textContent = ITPTotal.toFixed(2)+' €';
             // calculo del ITP base segun las tablas de la DGT luego 
             // se actualiza en base al precio del vehiculo
             
@@ -650,6 +650,7 @@
             
             ITPTotal = parseFloat(document.getElementById('ficha-tecnica-tabla').textContent)+parseFloat(document.getElementById('alta-baja-tabla').textContent)+parseFloat(document.getElementById('tasa-transferencia-tabla').textContent)+parseFloat(document.getElementById('informe-trafico-tabla').textContent)+parseFloat(document.getElementById('tramitacion-tabla').textContent);
             document.getElementById('total-tabla').textContent = ITPTotal.toFixed(2)+' €';
+            document.getElementById('total-total').textContent = ITPTotal.toFixed(2)+' €';
         }
         
     }
@@ -1040,12 +1041,14 @@
         if(signo == true){
             ITPTotal += valor;
             document.getElementById('total-tabla').textContent = ITPTotal.toFixed(2)+' €';
+            document.getElementById('total-total').textContent = ITPTotal.toFixed(2)+' €';
              document.getElementById('total-value').value = ITPTotal.toFixed(2);
         }else{
             if(ITPTotal > 0){
                 ITPTotal -= valor;
 
                 document.getElementById('total-tabla').textContent = ITPTotal.toFixed(2)+' €';
+                document.getElementById('total-total').textContent = ITPTotal.toFixed(2)+' €';
                 document.getElementById('total-value').value = ITPTotal.toFixed(2);
             }
             
