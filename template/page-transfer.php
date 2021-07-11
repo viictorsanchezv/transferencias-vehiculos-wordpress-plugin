@@ -79,7 +79,7 @@ include('insertar-contrato.php');
                             </button>
                         </li>
                     </ul>
-                    <div class='w-100 position-total row justify-content-between padLeftRight'>
+                    <div class='w-100 position-total row justify-content-between padLeftRight' id="position-total">
                         <div class='col-12 col-md-6 col-lg-6 text-light'>
                             <p class='m-0'>TOTAL</p>
                             <p>----</p>
@@ -106,46 +106,46 @@ include('insertar-contrato.php');
                         
                             <div class="w-100 tabla-calculos">
                                 <div class="row">
-                                    <div class="col-4 title border-row">
+                                    <div class="col-5 title border-row">
                                         <span >Precio de venta</span>
                                     </div>
-                                    <div class="col-8 valor border-row">
+                                    <div class="col-7 valor border-row">
                                         <span id='precio-venta'>0</span>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-4 title">
-                                        <span >Valor según precio de venta</span>
-                                    </div>
-                                    <div class="col-8 valor">
-                                        <span id='valoracion-precio-venta'>0</span>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4 title border-row">
+                                    <div class="col-5 title border-row">
                                         <span >Factor de correcci&oacute;n</span>
                                     </div>
-                                    <div class="col-8 valor border-row ">
+                                    <div class="col-7 valor border-row ">
                                         <span id='factor-correccion'>0</span>
                                     </div>
                                 </div>
 
+                                <div class="row">
+                                    <div class="col-5 title border-row">
+                                        <span >Valor según precio de venta</span>
+                                    </div>
+                                    <div class="col-7 valor border-row">
+                                        <span id='valoracion-precio-venta'>0</span>
+                                    </div>
+                                </div>
+
                                 <div class='row'>
-                                    <div class="col-4 title border-row">
+                                    <div class="col-5 title">
                                         <span >Valoraci&oacuten real</span>
                                     </div>
-                                    <div class="col-8 valor border-row ">
+                                    <div class="col-7 valor ">
                                         <span id='valoracion-real'>0</span>
                                     </div>
                                 </div>
                                 
                                 <div id='calculo-itp-total' class="row resultados">
-                                    <div class="col-4 title">
+                                    <div class="col-5 title">
                                         <span id='porcentaje-itp' > ITP (%) </span>
                                     </div>
-                                    <div class="col-8 valor">
+                                    <div class="col-7 valor">
                                         <span id='itp-total'>0</span>
                                     </div>
                                 </div>
@@ -157,95 +157,96 @@ include('insertar-contrato.php');
                     <div class='row section-calculos costes'>
                         <div class='col-12' id="">
                             <h3>Costes</h3>
-                        </div>
-                        <div class="w-100 tabla-calculos">
-                            <div class="row"  id='itp-costes-tabla'>
-                                <div class="col-4 title border-row">
-                                    <span >ITP</span>
+                        
+                            <div class="w-100 tabla-calculos">
+                                <div class="row"  id='itp-costes-tabla'>
+                                    <div class="col-4 title border-row">
+                                        <span >ITP</span>
+                                    </div>
+                                    <div class="col-8 valor border-row">
+                                        <span id='itp-costes' >0</span>
+                                    </div>
                                 </div>
-                                <div class="col-8 valor border-row">
-                                    <span id='itp-costes' >0</span>
+
+                                <div class='row' id='solo-gestion-dgt-container' style='display:none;' >
+                                    <div class="col-4 title border-row">
+                                        <span >Informe de gesti&oacute;n en la DGT</span>
+                                    </div>
+                                    <div class="col-8 valor border-row ">
+                                        <span id='solo-gestio-dgt'>15 € </span>
+                                    </div>
                                 </div>
+
+                                <div class='row' id='precio-notificacion-container' style='display:none;'>
+                                    <div class="col-4 title border-row">
+                                        <span >Precio de notificaci&oacute;n de venta</span>
+                                    </div>
+                                    <div class="col-8 valor border-row ">
+                                        <span id='precio-notificacion-costes'>50 € </span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row" id='tasa-transferencia' style='display:none;' >
+                                    <div class="col-4 title border-row">
+                                        <span>Tasas de transferencia de veh&iacute;culo</span>
+                                    </div>
+                                    <div class="col-8 valor border-row ">
+                                        <span id='tasa-transferencia-tabla' >55.15 € </span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row" id='informe-trafico' style='display:none;'>
+                                    <div class="col-4 title">
+                                        <span>Tasas informe de tr&aacute;fico</span>
+                                    </div>
+                                    <div class="col-8 valor">
+                                        <span id='informe-trafico-tabla'>8.59 € </span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row" id='alta-baja' style='display:none;'>
+                                    <div class="col-4 title">
+                                        <span >Tasas alta de baja temporal</span>
+                                    </div>
+                                    <div class="col-8 valor">
+                                        <span id='alta-baja-tabla' >30 € </span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row" id='ficha-tecnica-itv' style='display:none;'>
+                                    <div class="col-4 title">
+                                        <span>Tasas cambios ficha t&eacute;cnica en ITV</span>
+                                    </div>
+                                    <div class="col-8 valor">
+                                        <span id='ficha-tecnica-tabla' >20.40 € </span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row" id='tramitacion' style='display:none;'>
+                                    <div class="col-4 title">
+                                        <span>Tramiraci&oacute;n(Horarios, derechos colegiales, mensajer&iacute;a)</span>
+                                    </div>
+                                    <div class="col-8 valor">
+                                        <span id='tramitacion-tabla'>115.10 € </span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row resultados" >
+                                    <div class="col-4 title">
+                                        <span>Total (IVA incluido)</span>
+                                    </div>
+                                    <div class="col-8 valor">
+                                        <span id='total-tabla' >0</span>
+                                    </div>
+                                </div>
+
                             </div>
-
-                            <div class='row' id='solo-gestion-dgt-container' style='display:none;' >
-                                <div class="col-4 title border-row">
-                                    <span >Informe de gesti&oacute;n en la DGT</span>
-                                </div>
-                                <div class="col-8 valor border-row ">
-                                    <span id='solo-gestio-dgt'>15 € </span>
-                                </div>
-                            </div>
-
-                            <div class='row' id='precio-notificacion-container' style='display:none;'>
-                                <div class="col-4 title border-row">
-                                    <span >Precio de notificaci&oacute;n de venta</span>
-                                </div>
-                                <div class="col-8 valor border-row ">
-                                    <span id='precio-notificacion-costes'>50 € </span>
-                                </div>
-                            </div>
-
-
-                            <div class="row" id='tasa-transferencia' style='display:none;' >
-                                <div class="col-4 title border-row">
-                                    <span>Tasas de transferencia de veh&iacute;culo</span>
-                                </div>
-                                <div class="col-8 valor border-row ">
-                                    <span id='tasa-transferencia-tabla' >55.15 € </span>
-                                </div>
-                            </div>
-
-
-                            <div class="row" id='informe-trafico' style='display:none;'>
-                                <div class="col-4 title">
-                                    <span>Tasas informe de tr&aacute;fico</span>
-                                </div>
-                                <div class="col-8 valor">
-                                    <span id='informe-trafico-tabla'>8.59 € </span>
-                                </div>
-                            </div>
-
-
-                            <div class="row" id='alta-baja' style='display:none;'>
-                                <div class="col-4 title">
-                                    <span >Tasas alta de baja temporal</span>
-                                </div>
-                                <div class="col-8 valor">
-                                    <span id='alta-baja-tabla' >30 € </span>
-                                </div>
-                            </div>
-
-
-                            <div class="row" id='ficha-tecnica-itv' style='display:none;'>
-                                <div class="col-4 title">
-                                    <span>Tasas cambios ficha t&eacute;cnica en ITV</span>
-                                </div>
-                                <div class="col-8 valor">
-                                    <span id='ficha-tecnica-tabla' >20.40 € </span>
-                                </div>
-                            </div>
-
-
-                            <div class="row" id='tramitacion' style='display:none;'>
-                                <div class="col-4 title">
-                                    <span>Tramiraci&oacute;n(Horarios, derechos colegiales, mensajer&iacute;a)</span>
-                                </div>
-                                <div class="col-8 valor">
-                                    <span id='tramitacion-tabla'>115.10 € </span>
-                                </div>
-                            </div>
-
-
-                            <div class="row resultados" >
-                                <div class="col-4 title">
-                                    <span>Total (IVA incluido)</span>
-                                </div>
-                                <div class="col-8 valor">
-                                    <span id='total-tabla' >0</span>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -261,13 +262,13 @@ include('insertar-contrato.php');
                     <div class="tab-pane fade show active max-height-tab" id="vehiculo" role="tabpanel" aria-labelledby="vehiculo-tab">
                         <h1 class='title-tab padding-tab pt-3 pb-2'>Informaci&oacute;n del veh&iacute;culo </h1>
                         <div class='separator'></div>
-                        <div class='row justify-content-center m-0 padding-tab pt-5 pb-2'>
-                            <div class='col-12 col-md-12 col-lg-12 text-center align-title'>
+                        <div class='row justify-content-center m-0 padding-tab pt-5 pb-2 p-40'>
+                            <div class='col-12 col-md-12 col-lg-12 text-center align-title p-0'>
                                 <h3 class='title-border'> Elige tu veh&iacuteculo</h3>
                             </div>
                         </div>
-                        <div class='row justify-content-center m-0 padding-tab'>
-                            <div class='col-12 col-md-12 col-lg-12 text-center'>
+                        <div class='row justify-content-center m-0 padding-tab p-40'>
+                            <div class='col-12 col-md-12 col-lg-12 text-center p-0'>
                                 <?php include('section-vehiculo.php'); ?>
                             </div>
                         </div>

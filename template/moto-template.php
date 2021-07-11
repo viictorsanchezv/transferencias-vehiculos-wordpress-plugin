@@ -6,9 +6,9 @@
         
         ?>
         <!-- marca modelo y cilindrada -->
-        <div class='row'>
+        <div class='row justify-content-between' style="margin:0;">
             <!-- Marca  -->
-            <div class='col-12 col-md-6 col-lg-6'>
+            <div class='col-12 col-md-6 col-lg-5 ' style="padding:0;">
                 <div class="form-group">
                     <label class='font-weight-bold' for="formarca">Marca <span class='text-blue'> * </span> </label>
                     <input type="text" name='moto-marca' placeholder='Ejemplo: Kawasaki' class="form-control" id="moto-marca" aria-describedby="marca">
@@ -16,7 +16,7 @@
             </div>
 
             <!-- Modelo  -->
-            <div class='col-12 col-md-6 col-lg-6'>
+            <div class='col-12 col-md-6 col-lg-5' style="padding:0;">
                 <div class="form-group">
                     <label class='font-weight-bold' for="formarca">Modelo <span class='text-blue'> * </span> </label>
                     <input type="text" name='moto-modelo' placeholder='Ejemplo: Ninja 650 MY 2019' class="form-control" id="moto-modelo" aria-describedby="modelo">
@@ -24,7 +24,7 @@
             </div>
 
             <!-- Cilindrada  -->
-            <div class='col-12 col-md-12 col-lg-12'>
+            <div class='col-12 col-md-12 col-lg-5'style="padding:0;" >
                 <div class="form-group">
                     <label class='font-weight-bold' for="formarca">Cilindrada <span class='text-blue'> * </span> </label>
                     <select name='moto-cilindrada' class="form-control" id="cilindrada">
@@ -35,13 +35,17 @@
                     </select>
                 </div>
             </div>
+
+             <!-- fecha matriculacion -->
+             <div class='col-12 col-md-12 col-lg-5'style="padding:0;" >
+                <div class="form-group">
+                    <label class='font-weight-bold' for="exampleInputEmail1">Fecha de la primera matriculaci&oacuten <span class='text-blue'> * </span> </label>
+                    <input type="date" class="form-control" name='moto-date' id="moto-date" aria-describedby="date">
+                </div>
+              </div>
         </div>
         
-        <!-- fecha matriculacion -->
-        <div class="form-group">
-            <label class='font-weight-bold' for="exampleInputEmail1">Fecha de la primera matriculaci&oacuten <span class='text-blue'> * </span> </label>
-            <input type="date" class="form-control" name='moto-date' id="moto-date" aria-describedby="date">
-        </div>
+       
 
         <!-- datos adicionales -->
         <div id='moto-adicional' style='display:none;'>
@@ -185,7 +189,7 @@
             
          </div> 
 
-          <div class='separator'></div>
+          <div class='separator sep2'></div>
          
           <!-- datos adicionales del vehiculo -->
          <div id='datos-adicionales-moto' style='display:none;' >

@@ -1,5 +1,5 @@
         <!-- marca -->
-        <div class='col-12 col-md-5 col-lg-5'>
+        <div class='col-12 col-md-5 col-lg-5' style="padding:0;">
           <div class="form-group" style='display: flex; flex-direction: column;'>
               <label class='font-weight-bold' for="formarca">Marca <span class='text-blue'> * </span> </label>
               <select name='coche-marca' class="form-control" id="coche-marca">
@@ -10,7 +10,7 @@
               </select>
           </div>
         </div>
-        <div class='col-12 col-md-7 col-lg-7'>
+        <div class='col-12 col-md-5 col-lg-5' style="padding:0;">
           <!-- fecha matriculacion -->
           <div class="form-group">
               <label class='font-weight-bold' for="exampleInputEmail1">Fecha de la primera matricula <span class='text-blue'> * </span> </label>
@@ -18,7 +18,7 @@
           </div>        
         </div>
         
-        <div class='col-12 col-md-5 col-lg-5'>
+        <div class='col-12 col-md-5 col-lg-5' style="padding:0;">
           <!-- combustible  -->
           <div class="form-group" id='combustible-container' style='display:block;'>
               <label class='font-weight-bold' for="forcombustible">Combustible <span class='text-blue'> * </span> </label>
@@ -29,7 +29,7 @@
           </div>  
         </div>
 
-        <div class='col-12 col-md-7 col-lg-7'>
+        <div class='col-12 col-md-5 col-lg-5' style="padding:0;">
           <!-- modelo  -->
           <div class="form-group" id='modelo-container' style='display:flex; flex-direction: column;'>
               <label class='font-weight-bold' for="formodelo">Modelo <span class='text-blue'> * </span> </label>
@@ -39,7 +39,7 @@
           </div>
         </div>
              <!-- datos tabla --> 
-          <div class='col-12 col-md-12 col-lg-12'>
+          <div class='col-12 col-md-12 col-lg-12' style="padding:0px; margin-top: 40px;">
             <div id='tabla' style='display:none;'>
               <!-- Tabla informativa -->
               <table class="table">
@@ -181,8 +181,8 @@
                   
               </div>
 
-              <div class='row mt-4'>
-                <div class='col-12 col-md-6 col-lg-6'>
+              <div class='row mt-4 justify-content-between'>
+                <div class='col-12 col-md-5 col-lg-5'>
                   <!-- fecha venta -->
                   <div class="form-group ">
                       <div class='d-flex'>  
@@ -194,7 +194,7 @@
                   </div>
 
                 </div>
-                <div class='col-12 col-md-6 col-lg-6'>
+                <div class='col-12 col-md-5 col-lg-5'>
                   <!-- provincial del comprador  -->
                   <div class="form-group">
                       <div class='d-flex'>  
@@ -237,14 +237,14 @@
 
 
         <!-- datos adicionales del vehiculo -->
-        <div class='separator'></div>
+        <div class='separator sep2'></div>
         <div id='datos-adicionales' style='display:none;' >
-          <div class='row mt-5'>
+          <div class='row mt-5 justify-content-between'>
             <div class='col-12 col-md-12 col-lg-12 text-center  align-title'>
               <p class='font-weight-bold title-border'> Datos adicionales del veh&iacuteculo</p>
             </div>
                 <!-- matricula del vehiculo -->
-            <div class='col-12 col-md-6 col-lg-6'>
+            <div class='col-12 col-md-5 col-lg-5'>
               <label  class='font-weight-bold' for="basic-matricula">Matr&iacutecula del veh&iacuteculo <span class='text-blue'> * </span> </label>
               <div class="input-group mb-3 w-100">
                 <input name='coche-matricula' type="text" placeholder='Ejemplo: 3990 WDS' class="form-control" id="coche-matricula" aria-describedby="basic-matricula">
@@ -261,7 +261,7 @@
             
             
             <!-- serial chasis -->
-            <div class='col-12 col-md-6 col-lg-6'>
+            <div class='col-12 col-md-5 col-lg-5'>
               <label class='font-weight-bold' for="basic-chasis">N&uacutemero del bastidor <span class='text-blue'> * </span> </label>
               <div class="input-group mb-3 w-100">
                 <input name='coche-chasis' type="text" placeholder='DS5421ASD8536400A' class="form-control" id="coche-chasis" aria-describedby="basic-chasis">
@@ -284,7 +284,7 @@
             <!--</div>-->
 
             <!-- cambio servicio -->
-            <div class='col-12 col-md-6 col-lg-6'>
+            <div class='col-12 col-md-5 col-lg-5'>
                 <div class='d-flex'>
                     <p class='font-weight-bold mt-4'>¿Es un cambio de servicio?  </p>
                     <div class="tooltip question-circle"> <strong> i </strong></div>
@@ -297,7 +297,7 @@
             </div>
             
             <!-- notificacion -->
-            <div class='col-12 col-md-6 col-lg-6 '>
+            <div class='col-12 col-md-5 col-lg-5 '>
                 <div class='d-flex'>  
                     <p class='font-weight-bold mt-4'>Precio de notificaci&oacuten de venta </p>
                     <!--<div class="tooltip question-circle"> <strong> i </strong> </div>-->
@@ -333,14 +333,14 @@
 
           </div>
           
-          <div class='separator'></div>
+          <div class='separator sep2'></div>
           <!-- datos adicionales de la transferencia -->
-          <div class='row'>
+          <div class='row justify-content-between'>
             <div class='col-12 col-md-12 col-lg-12 text-center mt-3 align-title'>
               <p class='title-border'> Datos adicionales de la transferencia</p>
             </div>
             <!-- precio de venta -->
-            <div class='col-12 col-md-6 col-lg-6 mt-4'>
+            <div class='col-12 col-md-5 col-lg-5 mt-4'>
                 <div class='d-flex'>
                     <label class='font-weight-bold' for="basic-precio">Precio de compraventa <span class='text-blue'> * </span>  </label>
                     <div class="tooltip question-circle"> <strong> i </strong></div>
@@ -352,7 +352,7 @@
             </div>
 
             <!-- ficha tecnica -->
-            <div class='col-12 col-md-6 col-lg-6 mt-4'>
+            <div class='col-12 col-md-5 col-lg-5 mt-4'>
                 <div class='d-flex'>
                     <p class='mb-0 font-weight-bold'>¿Cambios en la ficha t&eacutecnica de ITV? </p>
                     <div class="tooltip question-circle"> <strong> i </strong></div>
@@ -366,7 +366,7 @@
             </div>
 
             <!-- alta del vehiculo -->
-            <div class='col-12 col-md-6 col-lg-6 mt-4'>
+            <div class='col-12 col-md-5 col-lg-5 mt-4'>
                 <div class='d-flex'>
                     <p class='font-weight-bold mb-0'>Alta del veh&iacuteculo </p>   
                     <div class="tooltip question-circle"> <strong> i </strong></div>
@@ -382,7 +382,7 @@
             </div>
 
               <!-- herencia -->
-            <div class='col-12 col-md-6 col-lg-6 mt-4'>
+            <div class='col-12 col-md-5 col-lg-5 mt-4'>
                 <div class='d-flex'>
                     <p class='font-weight-bold mb-0'>¿Es una herencia? </p>
                     <div class="tooltip question-circle"> <strong> i </strong></div>

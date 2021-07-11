@@ -34,10 +34,16 @@ body{
     position: absolute;
     left: 33.33%;
 }
+body{
+    scrollbar-width: none;
+}
+.bg-blue{
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
 .bg-blue::-webkit-scrollbar{
     display: none;
 }
-
 .padLeftRight{
     padding: 0 50px!important;
 }
@@ -66,7 +72,11 @@ body{
     position: relative;
     width: 100%;
 }
-
+#coche-date:after, #moto-date:after, #coche-venta:after{
+    content: url(../img/calendario.png);
+    position: absolute;
+    right: 14px;
+}
 #coche-date::-webkit-calendar-picker-indicator {
     background: transparent;
     bottom: 0;
@@ -111,9 +121,9 @@ body{
     position: relative;
     width: 100%;
 }
-
-
-
+#moto{
+    padding: 0!important;
+}
 #moto-date::-webkit-calendar-picker-indicator {
     background: transparent;
     bottom: 0;
@@ -163,10 +173,13 @@ body{
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #FFFF;
-    background-color: rgb(255 255 255 / 19%);;
-    border-color: #dee2e6 #dee2e6 #fff;
+    background-color: rgb(255 255 255 / 19%);
     margin: 9px 0px;
     padding-left: 15px!important;
+}
+.nav-tabs .nav-link.active{
+    border-color: #dee2e6 #dee2e6 #fff;
+    border: 1.5px solid ;
 }
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active p, 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active span{
@@ -175,7 +188,6 @@ body{
 
 .nav-tabs .nav-link {
     margin-bottom: -1px;
-    border: 1px solid transparent;
     border-top-left-radius: .25rem;
     border-top-right-radius: .25rem;
     background: transparent;
@@ -226,7 +238,6 @@ body{
 
 .padding-tab{
     padding-left: 3rem!important;
-    padding-left: 3rem!important;
 }
 .principal-color{
     color:#0000ba;
@@ -241,12 +252,14 @@ body{
     border-color: #0000ba;
     background-color: #0000ba;
 }
-
+.custom-control-input{
+    width: 2rem!important;
+    position: relative!important;
+}
 .tab-content .tab-pane{
     background: #FFF;
     border: 0px;
     border-radius: 0px;
-   
 }
 
 .table-info, .table-info>td, .table-info>th {
@@ -275,13 +288,39 @@ body{
 .select2-container--default .select2-selection--single .select2-selection__arrow{
     height: 45px!important;
 }
-
+.select2-container--default .select2-selection--single .select2-selection__arrow b{
+    left: 29%!important;
+}
+span.select2{
+    width: 100%!important;
+}
+select{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23888%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+    linear-gradient(to bottom, #ffffff 0%,#f7f7f7 100%);
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+}
+select::-ms-expand {
+    display: none; 
+}
+.select2-selection span, select.form-control, .form-group  input{
+    font-size: 13px;
+}
 .separator{
-    border: 1px solid #dee2e6;
-    margin: 10px 0px;
+    border: 0.5px solid #dee2e68c;
     width: 100%;
 }
-
+.sep2{
+    margin: 2rem -9rem 0 -3rem; 
+    width: calc(100% + 12rem)!important;
+}
+.tab-pane.show.active .separator{
+    margin-top: 50px;
+}
 .file-ccompra {
   opacity: 0;
   width: 0.1px;
@@ -419,59 +458,92 @@ body{
     cursor: pointer;
     transition: transform .2s ease-out;
 }
-
+.form-group label{
+    font-size: 14px;
+}
 .text-blue{
     color: #0000ba;
+}
+p.font-weight-bold, label.font-weight-bold{
+    font-size: 14px;
 }
 /**
 .max-height-tab{
     height: 100vh;
     overflow-y: auto;
 }**/
+#tipoVehiculo li{
+    padding: 0;
+}
 #tipoVehiculo li .nav-link{
     background: transparent;
     display: flex;
     align-items: center;
     border-radius: 5px;
+    width: 100%;
+    justify-content: center;
+    height: 70px;
+    text-align: left;
 }
-
 #tipoVehiculo li .nav-link p{
     color: #797C80;
     font-weight: bold;
-    font-size: 19px;
+    font-size: 15px;
+    line-height: 1;
 }
 
 #tipoVehiculo li .nav-link.active{
-    border: 1px solid #0000ba;
+    border: 1.5px solid #0000ba;
 }
-
+#tipoVehiculo li .nav-link:not(.active){
+    border: 1.5px solid #dee2e68c;
+}
 #tipoVehiculo li .active p{
     color: #0000ba;
-    width: fit-content;
-    
     font-family: 'Noto Sans', sans-serif;
     font-weight: 700;
     margin: 0px auto;
 }
-.title-tab{
-    font-size: 27px;
-    font-weight: bold;
+#tipoVehiculo #coche-tab.active img{
+    content :url("../img/coche2.svg");
+    overflow:hidden;
 }
-
+#tipoVehiculo #moto-tab.active img{
+    content :url("../img/moto2.svg");
+    overflow:hidden;
+}
+#marca-tab {
+    margin-top: 3rem;
+}
+.title-tab{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 1rem 3rem 0 3rem!important;
+}
+#vehiculo .separator{
+    margin-bottom: 50px;
+}
+.p-40{
+    padding: 0 9rem 0 3rem!important
+}
+.pl-0{
+    padding-left: 0px!important;
+}
+.p-0{
+    padding-left: 0;
+    padding-right: 0;
+}
 .table-itp{
     color: #494c5a;
     background-color: #d6d5fb;
 }
-
 #tabs .nav-item .nav-link{
     background-color:#FFF;
 }
-
 .descuento-itp{
     background-color: #DEF7EC;
     color: #046c4e;
 }
-
 .title-border{
     color: #0000ba;
     width: fit-content;
@@ -480,31 +552,25 @@ body{
     font-weight: bold;
     line-height: 32px;
 }
-
 .title-page{
     font-weight: 700;
     font-size: 27px;
 }
-
 #registerTab .nav-link.active{
     
     background-color: #FFF;
 }
-
 #registerTab .nav-link{
     
     background-color: lightgrey;
 }
-
 #registerTabContent .tab-pane{
     border-radius: 0px;
 }
-
 .active .step-number{
      border: 2px solid #FFF;
      color: #FFF;
 }
-
 .step-number{
     width: 34px;
     border: 1px solid #e2e8f0;
@@ -512,10 +578,8 @@ body{
     height: 32px;
     align-items: center;
     display: flex;
-    justify-content: center;
-    
+    justify-content: center; 
 }
-
 .image-space{
     margin: 0px;
 }
@@ -544,10 +608,10 @@ body{
     margin: 100px 0 0;
 }
 .position-total div{
-    margin-top: 30px;
+    margin: 14px 0px;
 }
 .position-total div p{
-    margin: 0px;
+    font-size: 13px;
 }
 .question-circle:hover{
     background-color: #0000ba;
@@ -582,9 +646,9 @@ body{
     visibility: hidden;
     width: auto;
     margin-left: 10px;
-    background-color: #bee5eb;
-    color: #000;
-    border: 1px solid #000;
+    background-color: #0000ba;
+    color: #fff;
+    border: 1px solid #fff;
     text-align: left;
     padding: 10px;
     border-radius: 15px;
@@ -593,15 +657,14 @@ body{
     margin-top:25px;
 
 }
-
 .table {
     width: 100%;
     margin-bottom: 1rem;
     color: #212529;
     border-right: 1px solid #dee2e6;
     border-left: 1px solid #dee2e6;
+    font-size: 14px;
 }
-
 
 /* Table data align */
 #marca-tabla,
@@ -636,6 +699,9 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.ver-todo button{
+    font-size: 13px;
 }
 
 @media (min-width: 1200px){
@@ -741,12 +807,20 @@ body{
     margin: 0;
     padding: 0 17px;
 }
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+.row div{
+    padding-left: 0;
+    padding-right: 0;
+}
 .section-calculos .row div{
     margin: 0;
     padding: 15px 0;
 }
 .section-calculos .row div.border-row{
-    border-bottom: 1px solid #ffffff6e;
+    border-bottom: 1px solid #ffffff54;
 }
 .section-calculos .title{
     font-size: 12px;
@@ -759,6 +833,7 @@ body{
 }
 .section-calculos  .resultados{
     background: #ffffff54;
+    margin-top: -1px;
 }
 .section-calculos  .resultados span{
     font-weight: 800;

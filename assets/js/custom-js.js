@@ -1063,11 +1063,13 @@
         document.getElementById('seccion-ver-todo').classList.add("up-section"); 
         document.getElementById('seccion-ver-todo').classList.remove("down-section");
         document.getElementById('seccion-ver-todo').classList.remove("height-remove");
+        document.getElementById('position-total').style.display = 'none';
         
     }
     ocultarrTodo.onclick= function(){
         document.getElementById('seccion-ver-todo').classList.add("down-section"); 
         document.getElementById('seccion-ver-todo').classList.remove("up-section");
+        document.getElementById('position-total').style.display = 'flex';
         
         setTimeout(() => {
             document.getElementById('seccion-ver-todo').classList.add("height-remove");
