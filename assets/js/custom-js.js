@@ -1062,10 +1062,17 @@
     verTodo.onclick= function(){
         document.getElementById('seccion-ver-todo').classList.add("up-section"); 
         document.getElementById('seccion-ver-todo').classList.remove("down-section");
+        document.getElementById('seccion-ver-todo').classList.remove("height-remove");
+        
     }
     ocultarrTodo.onclick= function(){
         document.getElementById('seccion-ver-todo').classList.add("down-section"); 
         document.getElementById('seccion-ver-todo').classList.remove("up-section");
+        
+        setTimeout(() => {
+            document.getElementById('seccion-ver-todo').classList.add("height-remove");
+        }, 1000);
+      
     }
   
 
