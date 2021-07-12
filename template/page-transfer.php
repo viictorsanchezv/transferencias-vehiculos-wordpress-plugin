@@ -22,7 +22,7 @@ include('insertar-contrato.php');
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <title>Transferir Coches</title>
 <div class='container'>
-    <div class='row'>
+    <div class='row' style="position: relative;">
         <div class='col-lg-4 col-md-4 col-sm-12 col-12 bg-blue p-4' >
             <div class="contenido-left">
                 <div class='row padLeftRight' >
@@ -198,30 +198,30 @@ include('insertar-contrato.php');
 
 
                                 <div class="row" id='informe-trafico' style='display:none;'>
-                                    <div class="col-4 title">
+                                    <div class="col-4 title border-row">
                                         <span>Tasas informe de tr&aacute;fico</span>
                                     </div>
-                                    <div class="col-8 valor">
+                                    <div class="col-8 valor border-row">
                                         <span id='informe-trafico-tabla'>8.59 € </span>
                                     </div>
                                 </div>
 
 
                                 <div class="row" id='alta-baja' style='display:none;'>
-                                    <div class="col-4 title">
+                                    <div class="col-4 title border-row">
                                         <span >Tasas alta de baja temporal</span>
                                     </div>
-                                    <div class="col-8 valor">
+                                    <div class="col-8 valor border-row">
                                         <span id='alta-baja-tabla' >30 € </span>
                                     </div>
                                 </div>
 
 
                                 <div class="row" id='ficha-tecnica-itv' style='display:none;'>
-                                    <div class="col-4 title">
+                                    <div class="col-4 title border-row">
                                         <span>Tasas cambios ficha t&eacute;cnica en ITV</span>
                                     </div>
-                                    <div class="col-8 valor">
+                                    <div class="col-8 valor border-row">
                                         <span id='ficha-tecnica-tabla' >20.40 € </span>
                                     </div>
                                 </div>
@@ -286,7 +286,7 @@ include('insertar-contrato.php');
                     <!-- Comprador  -->
                     <div class="tab-pane fade max-height-tab" id="comprador" role="tabpanel" aria-labelledby="comprador-tab">
                         <div class='row justify-content-center'>
-                            <div class='col-12 col-md-12 col-lg-12 text-center align-title'>
+                            <div class='col-12 col-md-12 col-lg-12 text-center align-title' style="margin-bottom: 0px;">
                                 <div class='row w-100'>
                                     <div class='col-12 col-md-6 col-lg-6'>
                                         <h3 class='title-tab padding-tab pt-3' id='titulo-comprador' > Datos del comprador</h3>    
@@ -322,8 +322,8 @@ include('insertar-contrato.php');
                     <!-- Vendedor  -->
                     
                     <div class="tab-pane fade max-height-tab" id="vendedor" role="tabpanel" aria-labelledby="vendedor-tab">
-                        <div class='row justify-content-center'>
-                            <div class='col-12 col-md-12 col-lg-12 text-center align-title'>
+                        <div class='row justify-content-center' >
+                            <div class='col-12 col-md-12 col-lg-12 text-center align-title' style="margin-bottom: 0;">
                                 <h3 class='title-tab padding-tab pt-3' id='titulo-vendedor'> Datos del vendedor</h3>
                             </div>
                         </div>
@@ -344,9 +344,9 @@ include('insertar-contrato.php');
                     </div>
                     <!-- Documentos  -->
                     
-                    <div class="tab-pane fade p-4 max-height-tab" id="documentos" role="tabpanel" aria-labelledby="documentos-tab">
+                    <div class="tab-pane fade p-4 max-height-tab" style="padding: 0!important;" id="documentos" role="tabpanel" aria-labelledby="documentos-tab">
                         <div class='row justify-content-center'>
-                            <div class='col-12 col-md-12 col-lg-12 text-center mt-3 mb-3 align-title'>
+                            <div class='col-12 col-md-12 col-lg-12 text-center mt-3 mb-3 align-title' style="margin: 0!important;">
                                 <h3 class='title-tab padding-tab pt-3'> Documentos necesarios</h3>
                             </div>
                         </div>
