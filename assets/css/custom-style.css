@@ -28,8 +28,18 @@ body{
     height: 100vh;
     overflow-x: hidden;
 }
-.bg-blue-height{
-    height: auto!important;
+@media(max-width:767px){
+    .bg-blue{
+        position: relative;
+        height: 100%;
+    }
+    .btn-group-toggle{
+        display: block;
+        text-align: center;
+    }
+    .btn-group-toggle label{
+        margin-bottom: 15px!important;
+    }
 }
 .contenido{
     position: relative;
@@ -52,7 +62,7 @@ body{
 }
 @media(max-width:1024px){
     .padLeftRight {
-        padding: 0px 30px!important;
+        padding: 0px 20px!important;
     }
 }
 .button-save{
@@ -170,6 +180,12 @@ body{
 .modal-cambio-vehiculo{
     background: rgba(61, 47, 61, 0.53);
 }
+#modalPrecioValidate, #modal-cambio-vehiculo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #FFFF;
@@ -283,6 +299,7 @@ body{
 
 .select2-container--default .select2-selection--single{
     height: 49px!important;
+    border: 1px solid #ced4da!important;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow{
@@ -316,6 +333,14 @@ select::-ms-expand {
     margin-top: 25px;
     margin-bottom: 50px;
 }
+@media(max-width:767px){
+    .separator{
+        margin-bottom: 20px;
+    }
+    .pt-5{
+        padding-top: 1rem!important;;
+    }
+}
 .clausula-btn{
     font-size: 13px!important;
     width: 252px!important;
@@ -328,18 +353,33 @@ select::-ms-expand {
 .card-fiel p {
     font-size: 14px;
 }
+.datos-tabla{
+    margin-top: 0px;
+}
 @media(min-width:1025px){
     .sep2{
         margin: 2rem -9rem 0 -3rem; 
         width: calc(100% + 6rem)!important;
     }
 }
-@media(max-width:1024px){
+@media(max-width:1024px) and (min-width:768px){
     .sep2{
         margin: 0 -3rem; 
         width: calc(100% + 6rem)!important;
     }
 }
+@media(max-width:767px){
+    .sep2{
+        margin: 30px 0; 
+        width: 100%!important;
+    }
+    .card-fiel {
+        width: 100%!important;
+        margin-right: 0;
+        padding: 5px 0!important;
+    }
+}
+
 .file-ccompra {
   opacity: 0;
   width: 0.1px;
@@ -429,10 +469,10 @@ select::-ms-expand {
 .btn-secondary {
     background-color: transparent;
     color: black;
-    border: 1px solid #ebecf6;
+    border: 1px solid #ced4da;
     margin: 0px 12px;
     padding: 12px 25px;
-    border-radius: 5px;
+    border-radius: 5px!important;
     font-size: 15px;
 }
 
@@ -514,7 +554,7 @@ p.font-weight-bold, label.font-weight-bold{
     border: 1.5px solid #0000ba;
 }
 #tipoVehiculo li .nav-link:not(.active){
-    border: 1.5px solid #dee2e68c;
+    border: 1.5px solid #ced4da;
 }
 #tipoVehiculo li .active p{
     color: #0000ba;
@@ -533,21 +573,61 @@ p.font-weight-bold, label.font-weight-bold{
 #marca-tab {
     margin-top: 3rem;
 }
+#marca-tab .tab-pane .separator{
+    margin-top: 2rem;
+}
 .title-tab{
     font-size: 25px;
     font-weight: bold;
-    padding: 1rem 3rem 0 3rem!important;
     text-align: left;
     margin-bottom: 0;
 }
-@media(min-width:1025px){
-    .p-40{
-        padding: 0 9rem 0 3rem!important
+#permiso-circulacion .card-fiel{
+    width: 97%;
+}
+@media(max-width:767px){
+    .title-tab{
+        font-size: 22px;
+        padding: 0px!important;
+    }
+    #vehiculo, #comprador, #vendedor, #documentos{
+        padding: 40px 20px 20px!important;
+    }
+    #marca-tab .tab-pane .separator{
+        margin-top: 2rem;
+    }
+    .empresa-preg{
+        text-align: center!important;
+        justify-content: initial;
+        display: flex;
+    }
+    .empresa-preg label{
+        margin-right: 20px;
+    }
+    #titulo-comprador{
+        padding-top: 0px!important;
     }
 }
-@media(min-width:1024px){
-    .p-40{
-        padding: 0 3rem!important
+@media(min-width:1025px){
+     .p-40{
+        padding: 0 9rem 0 3rem!important
+    }
+    .title-tab{
+        padding: 1rem 3rem 0 3rem!important;
+    }
+    
+}
+@media(max-width:1024px){
+     .p-40{
+        padding: 0 2rem!important
+    }
+    .title-tab{
+        padding: 1rem 2rem 0 2rem!important;
+    }
+}
+@media(max-width:767px){
+    .tab-pane#comprador .p-40, .tab-pane#vendedor .p-40, .tab-pane#documentos .p-40{
+        padding: 0 !important
     }
 }
 .pl-0{
@@ -652,6 +732,7 @@ p.font-weight-bold, label.font-weight-bold{
     border-radius:100px;
 }
 
+
 /* Tooltip container */
 .tooltip {
   position: relative;
@@ -668,7 +749,7 @@ p.font-weight-bold, label.font-weight-bold{
 /* Tooltip text */
 .tooltiptext {
     visibility: hidden;
-    width: auto;
+    width: auto!important;
     margin-left: 10px;
     background-color: #0000ba;
     color: #fff;
@@ -679,7 +760,6 @@ p.font-weight-bold, label.font-weight-bold{
     position: absolute;
     z-index: 2000;
     margin-top:25px;
-
 }
 .table {
     width: 100%;
@@ -689,7 +769,18 @@ p.font-weight-bold, label.font-weight-bold{
     border-left: 1px solid #dee2e6;
     font-size: 14px;
 }
-
+@media(max-width:767px){
+    .label-tooltip, .p-tooltip{
+        margin-right: 24px!important;
+    }
+     .tab-pane:not(#documentos) .tooltip.question-circle{
+        position: absolute;
+        right: 0;
+    }
+    .tooltip.question-circle strong{
+        width: 26px;
+    }
+}
 /* Table data align */
 #marca-tabla,
 #modelo-tabla,
@@ -739,10 +830,8 @@ p.font-weight-bold, label.font-weight-bold{
 @media (min-width: 1200px){
     .container, .container-lg, .container-md, .container-sm, .container-xl {
         max-width: 1250px!important;
-    
     }
 }
-
 @media (max-width: 600px) {
     #tabs .nav-item{
         width: 100%;
@@ -755,6 +844,7 @@ p.font-weight-bold, label.font-weight-bold{
         width: 100%;
         justify-content: center;
         display: flex; 
+        margin-bottom: 20px;
     }
     #tipoVehiculo .nav-item .nav-link {
         width: 100%;
@@ -796,7 +886,31 @@ p.font-weight-bold, label.font-weight-bold{
     -o-transition: all 1.0s linear;
     -ms-transition: all 1.0s linear;    
     transition: all 1.0s linear;
-    padding: 20px 40px!important;
+    
+}
+@media(min-width:768px){
+    .ver-todo-valores{
+        padding: 20px!important;
+    }
+    #documentos{
+        padding: 0!important;
+    }
+}
+@media(max-width:767px){
+    .ver-todo-valores{
+        padding: 20px!important;
+    }
+    .contenido .mt-5 {
+        margin-top: 1rem!important;
+    }
+    .contenido .mb-5 {
+        margin-bottom: 1rem!important;
+    }
+    .title-border{
+        font-size: 1rem!important;
+        text-align: left;
+        line-height: 1.4;
+    }
 }
 .up-section{
     top:0px;

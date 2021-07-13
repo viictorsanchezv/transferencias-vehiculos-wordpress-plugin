@@ -46,7 +46,7 @@
 
         </div>
              <!-- datos tabla --> 
-          <div class='col-12 col-md-12 col-lg-12' style="padding:0px; margin-top: 40px;">
+          <div class='col-12 col-md-12 col-lg-12' style="padding:0px; ">
             <div id='tabla' style='display:none;'>
               <!-- Tabla informativa -->
               <table class="table">
@@ -100,7 +100,7 @@
               <div class='row mt-4'>
                 <div class='col-12 col-md-12 col-lg-12 mt-4'>
                   <div class='d-flex'>
-                      <p class='font-weight-bold'>¿Propiedad del veh&iacuteculo? </p>
+                      <p class='font-weight-bold p-tooltip'>¿Propiedad del veh&iacuteculo? </p>
                       <div class="tooltip question-circle"> <strong> i </strong></div>
                       <span class="tooltiptext" style='width: 400px;'>Indique si usted es el vendedor o el comprador del veh&iacuteculo.</span>
                   </div>
@@ -117,7 +117,7 @@
                 </div>
 
                 <div class='col-12 col-md-12 col-lg-12 mt-4'>
-                  <label class='font-weight-bold d-flex mb-0'>¿El vendedor es empresa o aut&oacutenomo, emite factura de venta? 
+                  <label class='font-weight-bold d-flex mb-0 label-tooltip'>¿El vendedor es empresa o aut&oacutenomo, emite factura de venta? 
                       <div class="tooltip question-circle"> <strong> i </strong></div>  
                       <span class="tooltiptext" >Indique si el vendedor emitir&aacute una factura por la venta del veh&iacuteculo. En caso afirmativo, 
                       el sistema nos solicitar&aacute que adjuntemos la factura con su respectivo IVA.</span>
@@ -130,10 +130,10 @@
                 </div>
               </div>
 
-              <div class='row mt-2'>
+              <div class='row mt-4'>
                   <div class='col-12 col-md-12 col-lg-12 mt-4 ' id='gestion-container'>
                       <div class='d-flex'>  
-                          <p class='font-weight-bold'>¿Gestión completa?</p>
+                          <p class='font-weight-bold p-tooltip'>¿Gestión completa?</p>
                           <div class="tooltip question-circle"> <strong> i </strong> </div>
                           <span class="tooltiptext" >Indique el tipo de gesti&oacuten que desea realizar:
                             <br><br>
@@ -152,9 +152,9 @@
                         </label>
                       </div>
                   </div>
-                  <div class='col-12 col-md-12 col-lg-12 mt-5 mb-5'>
+                  <div class='col-12 col-md-12 col-lg-12 mt-4 '>
                       <div class='d-flex'>  
-                          <p class='font-weight-bold mb-0'>¿Obtener informe del veh&iacuteculo en la DGT? </p>
+                          <p class='font-weight-bold mb-0 p-tooltip'>¿Obtener informe del veh&iacuteculo en la DGT? </p>
                           <div class="tooltip question-circle"> <strong> i </strong> </div>
                           <span class="tooltiptext" >Indique si desea que, como primer paso de la gesti&oacuten solicitemos el
                             certificado del veh&iacuteculo en la DGT. En caso contrario, deber&aacute adjuntar una copia del mismo.
@@ -189,11 +189,11 @@
               </div>
 
               <div class='row mt-4 justify-content-between'>
-                <div class='col-12 col-md-5 col-lg-5'>
+                <div class='col-12 col-md-5 col-lg-5 mt-4'>
                   <!-- fecha venta -->
                   <div class="form-group ">
                       <div class='d-flex'>  
-                          <label class='font-weight-bold' for="forventa">Fecha de la venta <span class='text-blue'> * </span> </label>
+                          <label class='font-weight-bold label-tooltip' for="forventa">Fecha de la venta <span class='text-blue'> * </span> </label>
                           <div class="tooltip question-circle"> <strong> i </strong> </div>
                           <span class="tooltiptext" >Fecha en la que se realiza la venta del veh&iacuteculo. </span>
                       </div>
@@ -201,11 +201,11 @@
                   </div>
 
                 </div>
-                <div class='col-12 col-md-5 col-lg-5'>
+                <div class='col-12 col-md-5 col-lg-5 mt-4'>
                   <!-- provincial del comprador  -->
                   <div class="form-group">
                       <div class='d-flex'>  
-                          <label class='font-weight-bold' for="forprovincia" id='provincia-label'>Provincia del comprador <span class='text-blue'> * </span></label>
+                          <label class='font-weight-bold label-tooltip' for="forprovincia" id='provincia-label'>Provincia del comprador <span class='text-blue'> * </span></label>
                           <div class="tooltip question-circle"> <strong> i </strong></div>
                           <span class="tooltiptext">Provincia de la que reside el comprador de este parametro depende el calculo del Impuesto de Transmisiones Patrimoniales (ITP).</span>
                       </div>    
@@ -248,7 +248,7 @@
         <div id='datos-adicionales' style='display:none;' >
           <div class='row mt-5 justify-content-between'>
             <div class='col-12 col-md-12 col-lg-12 text-center  align-title'>
-              <p class='font-weight-bold title-border'> Datos adicionales del veh&iacuteculo</p>
+              <p class='title-border'> Datos adicionales del veh&iacuteculo</p>
             </div>
                 <!-- matricula del vehiculo -->
             <div class='col-12 col-md-5 col-lg-5'>
@@ -293,8 +293,8 @@
             <!-- cambio servicio -->
             <div class='col-12 col-md-5 col-lg-5'>
                 <div class='d-flex'>
-                    <p class='font-weight-bold mt-4'>¿Es un cambio de servicio?  </p>
-                    <div class="tooltip question-circle"> <strong> i </strong></div>
+                    <p class='font-weight-bold mt-4 p-tooltip'>¿Es un cambio de servicio?  </p>
+                    <div class="tooltip question-circle  mt-4 "> <strong> i </strong></div>
                     <span class="tooltiptext">Cuando un veh&iacuteculo cambia de servicio (por ejemplo, de uso particular a uso empresarial), se aplicar&aacuten las tasas correspondientes.</span>
                 </div>    
                 <div class="custom-control custom-switch">
@@ -344,12 +344,12 @@
           <!-- datos adicionales de la transferencia -->
           <div class='row justify-content-between'>
             <div class='col-12 col-md-12 col-lg-12 text-center mt-3 align-title'>
-              <p class='title-border'> Datos adicionales de la transferencia</p>
+              <p class='title-border '> Datos adicionales de la transferencia</p>
             </div>
             <!-- precio de venta -->
             <div class='col-12 col-md-5 col-lg-5 mt-4'>
                 <div class='d-flex'>
-                    <label class='font-weight-bold' for="basic-precio">Precio de compraventa <span class='text-blue'> * </span>  </label>
+                    <label class='font-weight-bold label-tooltip' for="basic-precio">Precio de compraventa <span class='text-blue'> * </span>  </label>
                     <div class="tooltip question-circle"> <strong> i </strong></div>
                     <span class="tooltiptext">Tenga en cuenta que el precio de venta no puede ser inferior al valor real del veh&iacuteculo mostrado en la tabla superior.</span>
                 </div>   
@@ -361,7 +361,7 @@
             <!-- ficha tecnica -->
             <div class='col-12 col-md-5 col-lg-5 mt-4'>
                 <div class='d-flex'>
-                    <p class='mb-0 font-weight-bold'>¿Cambios en la ficha t&eacutecnica de ITV? </p>
+                    <p class='mb-0 font-weight-bold  p-tooltip'>¿Cambios en la ficha t&eacutecnica de ITV? </p>
                     <div class="tooltip question-circle"> <strong> i </strong></div>
                     <span class="tooltiptext">Si haz realizado en la estaci&oacuten de ITV una modificaci&oacuten sobre el veh&iacuteculo que consta en la Ficha T&eacutecnica,
                     es necesario comunicarlo a Tr&aacutefico para poder transferir.</span>
@@ -375,7 +375,7 @@
             <!-- alta del vehiculo -->
             <div class='col-12 col-md-5 col-lg-5 mt-4'>
                 <div class='d-flex'>
-                    <p class='font-weight-bold mb-0'>Alta del veh&iacuteculo </p>   
+                    <p class='font-weight-bold mb-0 p-tooltip'>Alta del veh&iacuteculo </p>   
                     <div class="tooltip question-circle"> <strong> i </strong></div>
                     <span class="tooltiptext">Para realizar una transferencia de un veh&iacuteculo que est&aacute dado de baja temporal es necesario darlo de alta para hacer 
                     la transferencia del mismo.</span>
@@ -391,7 +391,7 @@
               <!-- herencia -->
             <div class='col-12 col-md-5 col-lg-5 mt-4'>
                 <div class='d-flex'>
-                    <p class='font-weight-bold mb-0'>¿Es una herencia? </p>
+                    <p class='font-weight-bold mb-0 p-tooltip'>¿Es una herencia? </p>
                     <div class="tooltip question-circle"> <strong> i </strong></div>
                     <span class="tooltiptext">Indique si el veh&iacuteculo es una herencia.</span>
                 </div>    

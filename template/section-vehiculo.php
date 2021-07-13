@@ -6,13 +6,13 @@
 
 ?>
 <ul class="nav nav-tabs justify-content-between border-0" id="tipoVehiculo" role="tablist">
-  <li class="nav-item col-5" role="presentation">
+  <li class="nav-item col-md-5 col-lg-5 col-12" role="presentation">
     <button class="nav-link active m-0 pt-4 pb-4 padding-tab" id="coche-tab" data-bs-toggle="tab" data-bs-target="#coche" type="button" role="tab" aria-controls="coche" aria-selected="true">
       <img width='48' height='48' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/coche.svg'; ?>" alt="">
       <p class='mb-0 ml-3 mr-3' >Coche</p>
     </button>
   </li>
-  <li class="nav-item col-5" role="presentation">
+  <li class="nav-item col-md-5 col-lg-5 col-12" role="presentation">
     <button class="nav-link m-0 pt-4 pb-4" id="moto-tab" data-bs-toggle="tab" data-bs-target="#moto" type="button" role="tab" aria-controls="moto" aria-selected="false">
         <img width='48' height='48' src="<?php echo plugin_dir_url( __DIR__ ).'assets/img/moto.svg'; ?>" alt="">
         <p class='mb-0 ml-3 mr-3'>Moto o coche sin carnet </p>    

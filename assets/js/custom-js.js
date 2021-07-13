@@ -154,7 +154,7 @@
             document.getElementById('coche-informe-label').textContent = 'No';
             document.getElementById('exampleModalLabelValidacion').textContent = 'Si no desea que realicemos esta gestión, deberá adjuntar el informe del vehículo de la DGT';
             document.getElementById('precio-validado').textContent = '';
-            document.getElementById('modalPrecioValidate').style.display = 'block';
+            document.getElementById('modalPrecioValidate').style.display = 'flex';
             document.getElementById('informe-dgt-container').style.display = 'flex';
             document.getElementById('informe-trafico').style.display = 'none';
             document.getElementById('cif-empresa-vendedora').style.display = 'flex';
@@ -190,7 +190,7 @@
             document.getElementById('factura-venta').style.display = 'flex';
             document.getElementById('cif-empresa-vendedora').style.display = 'flex';
             document.getElementById('itp-costes-tabla').style.display = 'none';
-            document.getElementById('modalPrecioValidate').style.display = 'block';
+            document.getElementById('modalPrecioValidate').style.display = 'flex';
         }
         
         vendedorEmpresa(cocheFactura);
@@ -460,7 +460,7 @@
            
            //abre el modal del error
            document.getElementById('exampleModalLabelValidacion').textContent = 'Tenga en cuenta que el precio de venta no puede ser inferior al valor real del vehículo mostrado en la tabla de costes.';
-           document.getElementById('modalPrecioValidate').style.display = 'block';
+           document.getElementById('modalPrecioValidate').style.display = 'flex';
            document.getElementById('precio-validado').textContent = valorTable+' €';
            document.getElementById('precio-venta').textContent = valorTable;
        
@@ -591,7 +591,7 @@
             document.getElementById('moto-gestion-container').style.display = 'none';
             document.getElementById('factura-venta').style.display = 'flex';
             document.getElementById('itp-costes-tabla').style.display = 'none';
-            document.getElementById('modalPrecioValidate').style.display = 'block';
+            document.getElementById('modalPrecioValidate').style.display = 'flex';
         }
     }
     
@@ -737,7 +737,7 @@
     motoTab.onclick = function(){
         let modeloTabCoche = document.getElementById('coche-modelo');
         if(modeloTabCoche.value != '' ){
-          document.getElementById('modal-cambio-vehiculo').style.display = 'block';
+          document.getElementById('modal-cambio-vehiculo').style.display = 'flex';
             
         }
         
@@ -763,7 +763,7 @@
                     document.getElementById('exampleModalLabelValidacion').textContent = 'Recuerde que si activa esta opción tendrá que adjuntar el contrato de compraventa así como el resguardo del pago en Hacienda del Impuesto de Transmisiones Patrimoniales.';
                     document.getElementById('precio-validado').textContent = '';
                     document.getElementById('calculo-itp').style.display = 'none';
-                    document.getElementById('modalPrecioValidate').style.display = 'block';
+                    document.getElementById('modalPrecioValidate').style.display = 'flex';
                     document.getElementById('contrato-compra-venta').style.display = 'flex';
                     document.getElementById('impuesto-hacienda-container').style.display = 'flex';
                     document.getElementById('itp-costes-tabla').style.display = 'flex';
@@ -787,7 +787,7 @@
             document.getElementById('coche-informe-label').textContent = 'No';
             document.getElementById('exampleModalLabelValidacion').textContent = 'Si no desea que realicemos esta gestión, deberá adjuntar el informe del vehículo de la DGT';
             document.getElementById('precio-validado').textContent = '';
-            document.getElementById('modalPrecioValidate').style.display = 'block';
+            document.getElementById('modalPrecioValidate').style.display = 'flex';
             document.getElementById('informe-dgt-container').style.display = 'flex';
             document.getElementById('informe-trafico').style.display = 'none';
              sumarITP(8.59 , false);
@@ -1039,7 +1039,7 @@
            
            //abre el modal del error
            document.getElementById('exampleModalLabelValidacion').textContent = 'Tenga en cuenta que el precio de venta no puede ser inferior al valor real del vehículo mostrado en la tabla de costes.';
-           document.getElementById('modalPrecioValidate').style.display = 'block';
+           document.getElementById('modalPrecioValidate').style.display = 'flex';
            document.getElementById('precio-validado').textContent = valorTable+' €';
            document.getElementById('precio-venta').textContent = valorTable;
        
@@ -1094,7 +1094,7 @@
                     document.getElementById('exampleModalLabelValidacion').textContent = 'Recuerde que si activa esta opción tendrá que adjuntar el contrato de compraventa así como el resguardo del pago en Hacienda del Impuesto de Transmisiones Patrimoniales.';
                     document.getElementById('precio-validado').textContent = '';
                     document.getElementById('calculo-itp').style.display = 'none';
-                    document.getElementById('modalPrecioValidate').style.display = 'block';
+                    document.getElementById('modalPrecioValidate').style.display = 'flex';
                     document.getElementById('contrato-compra-venta').style.display = 'flex';
                     document.getElementById('impuesto-hacienda-container').style.display = 'flex';
                     document.getElementById('itp-costes-tabla').style.display = 'flex';

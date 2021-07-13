@@ -21,8 +21,8 @@ include('insertar-contrato.php');
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <title>Transferir Coches</title>
-<div class='container'>
-    <div class='row' style="position: relative;">
+<div class='container cont'>
+    <div class='row' >
         <div class='col-lg-4 col-md-4 col-sm-12 col-12 bg-blue p-4' >
             <div class="contenido-left">
                 <div class='row padLeftRight' >
@@ -80,11 +80,11 @@ include('insertar-contrato.php');
                         </li>
                     </ul>
                     <div class='w-100 position-total row justify-content-between padLeftRight' id="position-total">
-                        <div class='col-12 col-md-6 col-lg-6 text-light'>
+                        <div class='col-6 col-md-6 col-lg-6 text-light'>
                             <p class='m-0'>TOTAL</p>
                             <p id='total-total'>0</p>
                         </div>
-                        <div class='col-12 col-md-6 col-lg-6 text-center ver-todo'>
+                        <div class='col-6 col-md-6 col-lg-6 text-center ver-todo'>
                             <button type="button" style='text-decoration: underline; background: none; border: 0;' class='w-100 text-light' id="boton-ver-todo" >VER TODO</button>
                         </div>
                     </div> 
@@ -291,7 +291,7 @@ include('insertar-contrato.php');
                                     <div class='col-12 col-md-6 col-lg-6'>
                                         <h3 class='title-tab padding-tab pt-3' id='titulo-comprador' > Datos del comprador</h3>    
                                     </div>
-                                    <div class='col-12 col-md-6 col-lg-6 pt-3 text-center'>
+                                    <div class='col-12 col-md-6 col-lg-6 pt-3 text-center empresa-preg'>
                                         <label class='font-weight-bold mb-0'>&#191; Eres una empresa &#63; </label>
                                         <div class="custom-control custom-switch">
                                             <input type="checkbox" class="custom-control-input" name='empresa-comprador' id="empresa-comprador">
@@ -344,7 +344,7 @@ include('insertar-contrato.php');
                     </div>
                     <!-- Documentos  -->
                     
-                    <div class="tab-pane fade p-4 max-height-tab" style="padding: 0!important;" id="documentos" role="tabpanel" aria-labelledby="documentos-tab">
+                    <div class="tab-pane fade p-4 max-height-tab"  id="documentos" role="tabpanel" aria-labelledby="documentos-tab">
                         <div class='row justify-content-center'>
                             <div class='col-12 col-md-12 col-lg-12 text-center mt-3 mb-3 align-title' style="margin: 0!important;">
                                 <h3 class='title-tab padding-tab pt-3'> Documentos necesarios</h3>

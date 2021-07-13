@@ -103,7 +103,7 @@
         </div>
         
         <div class='col-12 col-md-12 col-lg-12 text-left' style="margin-top: 16px;">
-            <label class='font-weight-bold mb-0 d-flex'>&#191; La DIRECCI&OacuteN que figura en el DNI es la de empadronamiento &#63; 
+            <label class='font-weight-bold mb-0 d-flex label-tooltip'>&#191; La DIRECCI&OacuteN que figura en el DNI es la de empadronamiento &#63; 
                 <div class="tooltip question-circle"> <strong> i </strong></div>  
                     <span class="tooltiptext" > En el caso de que la direcci&oacuten de empadronamiento del comprador sea diferente 
                     a la que figura en el DNI, ind&iacutequelo mediante esta opci&oacuten. Recuerde que necesitar&aacute adjuntar el certificado de empadronamiento.</span>

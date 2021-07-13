@@ -7,7 +7,7 @@
        
         <div class='col-12 col-md-12 col-lg-12 text-left'>
             <div class='d-flex'>
-                <p class='font-weight-bold' style="font-size: 15px;">¿Quiere que generemos toda la documentaci&oacuten?</p>
+                <p class='font-weight-bold p-tooltip' style="font-size: 15px;">¿Quiere que generemos toda la documentaci&oacuten?</p>
                 <div class="tooltip question-circle"> <strong> i </strong></div>
                 <span class="tooltiptext" style='width: 400px;'>Si ya dispone de un contrato de compra venta indique <strong>'Yo aporto el contrato'</strong>. 
                 En caso contrario nuestro sistema generar&aacute de forma automatic&aacute un contrato de compra venta est&aacutendar que podr&aacute personalizar. </span>
@@ -48,7 +48,7 @@
                 
             <div class="formt-group">
                 <div class='d-flex' style=" margin-top: 30px;">
-                    <p class='mb-0 font-weight-bold' style="font-size: 15px;">Si desea añadir cl&aacuteusulas adicionales en el contrato red&aacutectelas a continuaci&oacuten </p>
+                    <p class='mb-0 font-weight-bold p-tooltip' style="font-size: 15px;">Si desea añadir cl&aacuteusulas adicionales en el contrato red&aacutectelas a continuaci&oacuten </p>
                     <div class="tooltip question-circle"> <strong> i </strong></div>
                     <span class="tooltiptext" style='width: 400px;'>En esta secci&oacuten podr&aacute establecer todas aquellas cl&aacuteusulas que considere necesario.
                     &Eacutestas se incluir&aacuten autom&aacuteticamente en el contrato est&aacutendar dentro de una secci&oacuten denominada. <strong>'Cl&aacuteusulas Adicionales.'</strong></span>
