@@ -260,7 +260,7 @@
         matriculacion                   = matriculacion.value.split('-');
         let url = sideURL+'/wp-json/gp/v1/car_model/?marca='+marca.value+'&combustible='+combustible.value+'&matriculacion='+matriculacion[0];
         document.getElementById('modelo-container').style.display = 'none';
-        document.getElementById('coche-spinner-modelo').display = 'block';
+        document.getElementById('coche-spinner-modelo').style.display = 'block';
         fetch(url,{method: 'GET'})
             .then(function(response) {
                 return response.json();
@@ -288,7 +288,7 @@
                 });
 
                 document.getElementById('modelo-container').style.display = 'block';
-                document.getElementById('coche-spinner-modelo').display = 'none';
+                document.getElementById('coche-spinner-modelo').style.display = 'none';
             }); 
 
 
@@ -386,7 +386,7 @@
     
     function combustibleDislplay(){
         combustibleContainer.style.display = 'none';
-        document.getElementById('coche-spinner-combustible').display = 'block';
+        document.getElementById('coche-spinner-combustible').style.display = 'block';
 
         let url = sideURL+'/wp-json/gp/v1/combustible/?marca='+marca.value;
         fetch(url,{method: 'GET'})
@@ -417,7 +417,7 @@
                 });
                 
                 combustibleContainer.style.display = 'block';
-                document.getElementById('coche-spinner-combustible').display = 'none';
+                document.getElementById('coche-spinner-combustible').style.display = 'none';
             });  
     }
     
